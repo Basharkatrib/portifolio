@@ -53,12 +53,12 @@ function Features() {
         <>
             <div className="w-full p-2 flex flex-wrap border-b-2 border-white py-3 md:py-3 lg:py-20" id="Features">
                 {data.map((card, index) => {
-                        return <div className="flex basis-full lg:basis-1/3 md:basis-1/2 p-4" key={card.id}>
+                        return <div className="flex basis-full lg:basis-1/3 md:basis-1/2 p-1 md:p-4" key={card.id}>
                             <div className="card transition-all duration-500 hover:bg-gradient-to-b from-black from-70% via-slate-800 via-90% to-slate-700 to-200% flex flex-col w-full h-[300px] rounded-md shadow-2xl relative overflow-hidden">
-                                <div className="subcard absolute flex flex-col gap-5 left-10 w-[70%] bottom-[-50px] transition-all duration-500">
+                                <div className="subcard absolute w-[90%] flex flex-col gap-5 left-4 md:left-10 md:w-[70%] bottom-[-50px] transition-all duration-500">
                                     <div className="w-11">{card.icon}</div>
-                                    <div className="text-white text-3xl">{card.title}</div>
-                                    <div className="text-slate-500">{card.subtitle}</div>
+                                    <div className="text-white text-2xl md:text-3xl">{card.title}</div>
+                                    <div className="text-slate-500 w-full">{card.subtitle}</div>
                                     <div className="w-11"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="red" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></div>
                                 </div>
                             </div>

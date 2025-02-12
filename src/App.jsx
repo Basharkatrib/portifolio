@@ -6,6 +6,8 @@ import Footer from './components/Footer/Footer';
 import Hero from './components/Hero/Hero';
 import Featurs from './components/Features/Features';
 import Resume from './components/Resume/Resume';
+import Slider from './components/Slider/Slider';
+import Contact from './components/Contact/Contact';
 
 
 function App(props) {
@@ -17,6 +19,8 @@ function App(props) {
     <Hero />
     <Featurs />
     <Resume />
+    <Slider />
+    <Contact />
     <Footer />
     </>
   );

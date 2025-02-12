@@ -9,7 +9,7 @@ function Navbar() {
         initTWE({ Collapse, Dropdown });
     }, []);
 
-    const navitems = ['Home', 'Features', 'Projects', 'Resume', 'Testimonial', 'Contacts'];
+    const navitems = ['Home', 'Features', 'Projects', 'Testimonial', 'Contact'];
 
     return (
         <>

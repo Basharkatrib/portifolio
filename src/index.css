@@ -46,3 +46,21 @@ body{
   box-shadow: -3px -5px 8px 0 rgb(255 255 255 / 20%), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+.imm{
+  transition: 0.5s ;
+}
+
+.proj-container:hover .imm{
+   transform: scale(1.1);
+}
+
+
+
+.swiper-pagination-bullet-active{
+  background-color: white !important;
+}
+
+.swiper-wrapper{
+  padding-bottom: 35px;
+}
