@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import { Collapse, Dropdown, initTWE } from "tw-elements";
 import logo from '../../assets/logo.png';
+import tikmol from '../../assets/tikmol.png';
 import ecomimage from '../../assets/R.jpeg';
+import ecomclothes from '../../assets/OIP.jpeg';
+import courses from '../../assets/image.svg';
+import prodstore from '../../assets/productstore.png';
+
+
+
 import '../../index.css';
 import { use } from "react";
 
@@ -13,58 +20,45 @@ function Resume() {
     const data = [
         {
             id: 1,
-            title: "BSc in Computer Science",
-            subtitle: "University of DVI (2006 - 2010)",
-            desc: "The training provided by universities in order to prepare people to work in various sectors of the economy or areas of culture.",
-            rate: "3.90/4",
+            title: "Bachelor's degree in information technology",
+            subtitle: "University of Lattakia in Syria",
+            desc: "My continuous learning at university and my perseverance in studying gave me the opportunity to be able to work as a team and develop.",
+            rate: "85/100",
         },
         {
             id: 2,
-            title: "BSc in Computer Science",
-            subtitle: "University of DVI (2006 - 2010)",
-            desc: "The training provided by universities in order to prepare people to work in various sectors of the economy or areas of culture.",
-            rate: "3.90/4",
+            title: "JavaScript Course Completion Certificate",
+            subtitle: "Armenian University",
+            desc: "After completing the JavaScript course and passing all the tests, the SoloLearn platform awarded me a certificate of course completion.",
+            rate: "100/100",
         },
-        {
-            id: 3,
-            title: "BSc in Computer Science",
-            subtitle: "University of DVI (2006 - 2010)",
-            desc: "The training provided by universities in order to prepare people to work in various sectors of the economy or areas of culture.",
-            rate: "3.90/4",
-        },
-        {
-            id: 4,
-            title: "BSc in Computer Science",
-            subtitle: "University of DVI (2006 - 2010)",
-            desc: "The training provided by universities in order to prepare people to work in various sectors of the economy or areas of culture.",
-            rate: "3.90/4",
-        },
+       
     ]
 
     const data2 = [
         {
             id: 1,
-            title: "BSc in Computer Science",
-            desc: "The training provided by universities in order to prepare people to work in various sectors of the economy or areas of culture.",
-            src: ecomimage,
+            title: "Tikmol e-commerce",
+            desc: "Full Stack e-store where ReactJS front-end and Laravel back-end were used with Nova admin interface.",
+            src: tikmol,
         },
         {
             id: 2,
-            title: "BSc in Computer Science",
-            desc: "The training provided by universities in order to prepare people to work in various sectors of the economy or areas of culture.",
-            src: ecomimage,
+            title: "Clothes e-commerce",
+            desc: "Full Stack e-store where ReactJS front-end and Strapi CMS Dashboard back-end and Tailwind Css.",
+            src: ecomclothes,
         },
         {
             id: 3,
-            title: "BSc in Computer Science",
-            desc: "The training provided by universities in order to prepare people to work in various sectors of the economy or areas of culture.",
-            src: ecomimage,
+            title: "Educational platform",
+            desc: "An educational platform that allows you to choose courses, start watching videos, and comment on any video using Laravel..",
+            src: courses,
         },
         {
             id: 4,
-            title: "BSc in Computer Science",
-            desc: "The training provided by universities in order to prepare people to work in various sectors of the economy or areas of culture.",
-            src: ecomimage,
+            title: "Store management system",
+            desc: "A warehouse management system for selling products where you can add, delete, modify and search for a specific product using HTML CSS JavaScript.",
+            src: prodstore,
         },
     ]
 
@@ -73,8 +67,8 @@ function Resume() {
 
     return (
         <>
-            <div className="w-full h-auto flex flex-col gap-5 py-5 px-1 md:px-3 items-center border-b-2 border-white" id="Projects">
-                <div className="text-red-600">7+ YEARS OF EXPERIENCE</div>
+            <div className="w-full mt-5 md:mt-0 h-auto flex flex-col gap-5 py-5 px-1 md:px-3 items-center border-b-2 border-white" id="Projects">
+                <div className="text-red-600">1+ YEARS OF EXPERIENCE</div>
                 <div className="text-[50px] text-white font-bold">My Resume</div>
                 <div className="w-full h-14 rounded flex bg-black items-center justify-between ">
                     <div onClick={() => setActive(1)} className={`text-[20px] md:text-[30px] basis-1/2 ${active === 1 ? 'border-[1px] border-red-600' : ''} transition-all duration-300 text-white text-2xl text-center h-full flex items-center justify-center hover:bg-zinc-900 rounded`}> Education</div>
@@ -82,8 +76,7 @@ function Resume() {
                 </div>
                 <div className={`w-full ${active === 1 ? 'flex' : 'hidden'} flex-col mt-8`}>
                     <div className="w-full flex flex-col gap-2 justify-start">
-                        <div className=" hidden md:block text-red-600 text-[20px] ">1998 - 2010</div>
-                        <div className="text-4xl text-center md:text-left md:text-[50px] text-white font-bold">Education Quality</div>
+                        <div className="text-4xl text-center md:text-left md:text-[40px] text-white font-bold">Education Quality</div>
                     </div>
                     <div className="w-full flex justify-between items-start flex-wrap p-2 md:p-6 gap-3">
                         {
@@ -107,16 +100,15 @@ function Resume() {
 
                 <div className={`w-full ${active === 2 ? 'flex' : 'hidden'} flex-col mt-8`}>
                     <div className="w-full flex flex-col gap-2 justify-start">
-                        <div className="text-red-600 text-[20px]">1998 - 2010</div>
-                        <div className="text-[50px] text-white font-bold">My Projects</div>
+                        <div className="text-4xl md:text-[40px] text-center md:text-left text-white font-bold">My Projects</div>
                     </div>
-                    <div className="w-full flex justify-between items-start flex-wrap p-6 gap-3">
+                    <div className="w-full flex justify-between items-start flex-wrap p-2 md:p-6 gap-3">
                         {
                             data2.map((item2, index) => {
                                 return (
-                                    <div className="proj-container flex flex-col items-center basis-full md:basis-[32%] px-7 py-7 bg-neutral-900 rounded-xl">
+                                    <div className="proj-container flex flex-col items-center basis-full md:basis-[32%] py-4 px-2 md:px-7 md:py-7 bg-neutral-900 rounded-xl">
                                         <div className=" w-[90%] flex flex-col gap-5">
-                                            <div className="overflow-hidden rounded-xl">
+                                            <div className="overflow-hidden h-[250px] rounded-xl">
                                                 <img className="imm rounded-xl w-full h-full" src={item2.src} />
                                             </div>
                                             <div className="rounded-lg text-red-600 text-2xl">{item2.title}</div>

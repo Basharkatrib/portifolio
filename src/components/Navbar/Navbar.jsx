@@ -9,7 +9,7 @@ function Navbar() {
         initTWE({ Collapse, Dropdown });
     }, []);
 
-    const navitems = ['Home', 'Features', 'Projects', 'Testimonial', 'Contact'];
+    const navitems = ['Home', 'Features', 'Projects', 'Contact'];
 
     return (
         <>
@@ -91,7 +91,7 @@ function Navbar() {
             {/* Mobile Navbar */}
 
             <nav
-                class="navmob relative flex w-full flex-nowrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-neutral-700 md:hidden lg:flex-wrap lg:justify-start lg:py-4"
+                class="navmob fixed z-50 flex w-full flex-nowrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-neutral-700 md:hidden lg:flex-wrap lg:justify-start lg:py-4"
                 data-twe-navbar-ref>
                 <div class="flex w-full flex-wrap items-center justify-between px-3">
                     <div className="flex justify-between items-center w-full">
@@ -99,7 +99,7 @@ function Navbar() {
                             <img className="w-12 h-12 rounded-full transition duration-300 hover:scale-110" src={logo} />
                         </div>
                         <button
-                            class="block border-0 bg-black rounded-md px-2  hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+                            class="block border-0 h-10 bg-black rounded-md px-2  hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
                             type="button"
                             data-twe-collapse-init
                             data-twe-target="#navbarSupportedContent8"
@@ -132,13 +132,18 @@ function Navbar() {
                             {navitems.map((item, index) => <li
                                 className="my-4 ps-2 md:my-0 md:pe-1 md:ps-2"
                                 data-twe-nav-item-ref key={index}>
-                                <a
-                                    className="md:px-2 text-gray-400 transition duration-300 hover:text-red-600"
-                                    aria-current="page"
-                                    href="#"
-                                    data-twe-nav-link-ref
-                                >{item}</a
-                                >
+                                <Link
+                                        key={index}
+                                        activeClass="active"
+                                        to={item}
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-70} 
+                                        duration={500}
+                                        className="md:px-2 text-gray-400 transition duration-300 hover:text-red-600"
+                                    >
+                                        {item}
+                                    </Link>
                             </li>
                             )}
 

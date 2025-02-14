@@ -6,7 +6,11 @@ module.exports = {
     "./node_modules/tw-elements/js/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'lg-custom': '820px',
+      },
+    },
   },
   darkMode: "className",
   plugins: [require("tw-elements/plugin.cjs")],

@@ -19,7 +19,6 @@ function App(props) {
     <Hero />
     <Featurs />
     <Resume />
-    <Slider />
     <Contact />
     <Footer />
     </>

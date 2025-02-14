@@ -45,7 +45,7 @@ function Slider() {
                 {data.map((slide) => (
                     <SwiperSlide key={slide.id}>
                         <div className="flex flex-col md:flex-row w-full justify-center gap-8 relative">
-                            <div className="proj-container justify-center  flex flex-col items-center px-7 py-7 shadow-5-strong rounded-sm">
+                            <div className="proj-container justify-center  flex flex-col items-center py-2 px-3 md:px-7 md:py-7 shadow-5-strong rounded-sm">
                                 <div className="flex h-full flex-col gap-1">
                                     <div className="overflow-hidden rounded-xl">
                                         <img className="imm rounded-xl w-full h-full" src={slide.src} alt="Slider Image" />

@@ -1,34 +1,35 @@
 import '../../index.css';
 import ecomimage from '../../assets/R.jpeg';
+import myphoto from '../../assets/photo.png'
 
 
 function Contact() {
 
     return (
         <>
-            <div className='w-full mt-5 md:mt-0 h-auto flex flex-col md:px-9 md:py-14 border-b-2 border-white' id='Contact'>
+            <div className='w-full mt-5 md:mt-0 h-auto flex flex-col md:px-9 md:py-14' id='Contact'>
                 <div className='w-full flex flex-col items-center'>
                     <div className=' text-red-600'>CONTACT</div>
                     <div className='text-white text-3xl font-bold'>Contact With Me</div>
                 </div>
-                <div className='flex flex-col md:flex-row justify-between gap-9 mt-5'>
+                <div className='flex flex-col  lg-custom:flex-row justify-between gap-9 mt-5'>
                     <div className='flex flex-col basis-[35%] gap-4 p-3 md:p-5 rounded-sm shadow-5-strong'>
-                        <div>
-                            <img className=' rounded-sm' src={ecomimage} />
+                        <div className='h-[370px]'>
+                            <img className=' rounded-sm h-full w-full object-cover' src={myphoto} />
                         </div>
                         <div className='text-white text-3xl font-bold'>BASHAR KATRIB</div>
-                        <div className=' text-slate-400'>MERN Stack Developer</div>
-                        <div className='text-slate-400'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis ipsam autem cumque, accusantium dicta odio.</div>
-                        <div className='text-slate-400'>Phone: +968 97859628</div>
-                        <div className='text-slate-400'>Email: noor.jsdivs@gmail.com</div>
+                        <div className=' text-slate-400'>FULL Stack Developer</div>
+                        <div className='text-slate-400'>I am honored to receive any communication from anyone regarding work or receiving a project. You can contact me through:.</div>
+                        <div className='text-slate-400'>Phone: +963 937662759</div>
+                        <div className='text-slate-400'>Email: bashar2003katrib@gmail.com</div>
                         <div className="flex gap-4">
-                            <a href="#!" className="p-2 bg-black rounded-md transition-all duration-300 hover:-translate-y-1" ><span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#969696]">
+                            <a href="https://www.facebook.com/share/151MJb9EmD/" className="p-2 bg-black rounded-md transition-all duration-300 hover:-translate-y-1" ><span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#205de0]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                                     <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
                                 </svg>
                             </span>
                             </a>
-                            <a href="#!" className="p-2 bg-black rounded-md transition-all duration-300 hover:-translate-y-1">
+                            <a href="https://www.instagram.com/katribbashar?igsh=MW85ZndiNm15eGpqbg==" className="p-2 bg-black rounded-md transition-all duration-300 hover:-translate-y-1">
                                 <span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#c13584]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                         <path
@@ -36,18 +37,10 @@ function Contact() {
                                     </svg>
                                 </span>
                             </a>
-                            <a href="#!" className="p-2 bg-black rounded-md transition-all duration-300 hover:-translate-y-1">
-                                <span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#0077b5]">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                        <path
-                                            d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
-                                    </svg>
-                                </span>
-                            </a>
                         </div>
                     </div>
                     <div className='flex flex-col basis-[65%] shadow-5-strong p-3 md:p-5 rounded-sm'>
-                        <form className='w-full flex-col'>
+                        <form className='w-full flex flex-col justify-between h-full'>
                             <div className='flex flex-col md:flex-row gap-5 '>
                                 <div className='flex flex-col basis-1/2 text-slate-400'>
                                     <label>YOUR NAME</label>
@@ -68,8 +61,9 @@ function Contact() {
                             </div>
                             <div className='flex flex-col text-slate-400 mt-5 gap-2'>
                                 <label>MESSAGE</label>
-                                <textarea className='outline-none bg-zinc-900 p-3 rounded-md' type='textaria' rows="13" />
+                                <textarea className='outline-none bg-zinc-900 p-3 rounded-md' type='textaria' rows="11" />
                             </div>
+                            <input type="submit" value="Send Message" className='mt-5 bg-black p-3 rounded-md w-full transition-all duration-300 hover:bg-neutral-800 hover:text-white' />
 
                         </form>
 
