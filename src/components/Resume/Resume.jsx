@@ -99,7 +99,7 @@ function Resume() {
                     <div className="w-full flex flex-col gap-2 justify-start">
                         <div className="text-4xl text-center md:text-left md:text-[40px] text-white font-bold">Education Quality</div>
                     </div>
-                    <div className="w-full flex justify-between items-start flex-wrap  gap-3">
+                    <div className="w-full flex justify-between items-start flex-wrap mt-4 gap-3">
                         {
                             data.map((item, index) => {
                                 return (
@@ -123,12 +123,12 @@ function Resume() {
                     <div className="w-full flex flex-col gap-2 justify-start">
                         <div className="text-4xl md:text-[40px] text-center md:text-left text-white font-bold">My Projects</div>
                     </div>
-                    <div className="w-full flex justify-between items-start flex-wrap md:mt-7 gap-3">
+                    <div className="w-full flex justify-between items-start flex-wrap mt-4 gap-3">
                         {
                             data2.map((item2, index) => {
                                 return (
 
-                                    <div className="proj-container flex flex-col items-center h-[450px] basis-full mb-3 md:basis-[32%] py-4 px-2 md:px-7 md:py-7 bg-neutral-900 rounded-xl">
+                                    <div className="proj-container flex flex-col items-center md:h-[550px] xl:h-[460px] basis-full mb-3 md:basis-[32%] py-4 px-2 md:px-7 md:py-7 bg-neutral-900 rounded-xl">
                                         <a href={item2.link}>
                                             <div className=" w-[98%] flex flex-col gap-5">
                                                 <div className="overflow-hidden h-[250px] rounded-xl">
