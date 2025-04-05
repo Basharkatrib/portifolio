@@ -20,8 +20,7 @@ function Footer() {
             <footer
                 class="flex flex-col items-center  ">
                 <div class="w-full bg-black/5 p-4 text-center">
-                    © 2023 Copyright:
-                    <a href="https://tw-elements.com/">TW Elements</a>
+                    © 2024 Bashar Katrib
                 </div>
             </footer>
         </>

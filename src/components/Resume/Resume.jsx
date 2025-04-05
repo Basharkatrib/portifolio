@@ -6,6 +6,9 @@ import ecomimage from '../../assets/R.jpeg';
 import ecomclothes from '../../assets/OIP.jpeg';
 import courses from '../../assets/image.svg';
 import prodstore from '../../assets/productstore.png';
+import photoland from '../../assets/photoland.png';
+import weather from '../../assets/weather.png';
+
 
 
 
@@ -32,30 +35,42 @@ function Resume() {
             desc: "After completing the JavaScript course and passing all the tests, the SoloLearn platform awarded me a certificate of course completion.",
             rate: "100/100",
         },
-       
+
     ]
 
     const data2 = [
         {
             id: 1,
+            title: "Photo Land e-commerce",
+            desc: "Full Stack Camera e-store where ReactJS front-end and Strapi CMS back-end were used with Redux Toolkit state managenment.",
+            src: photoland,
+        },
+        {
+            id: 2,
             title: "Tikmol e-commerce",
             desc: "Full Stack e-store where ReactJS front-end and Laravel back-end were used with Nova admin interface.",
             src: tikmol,
         },
         {
-            id: 2,
+            id: 3,
+            title: "Weather App",
+            desc: "A simple weather app built with React JS for the frontend, Tailwind CSS for styling, and RESTful API to fetch real-time weather data, offering users an interactive and responsive experience.",
+            src: weather,
+        },
+        {
+            id: 4,
             title: "Clothes e-commerce",
             desc: "Full Stack e-store where ReactJS front-end and Strapi CMS Dashboard back-end and Tailwind Css.",
             src: ecomclothes,
         },
         {
-            id: 3,
+            id: 5,
             title: "Educational platform",
             desc: "An educational platform that allows you to choose courses, start watching videos, and comment on any video using Laravel..",
             src: courses,
         },
         {
-            id: 4,
+            id: 6,
             title: "Store management system",
             desc: "A warehouse management system for selling products where you can add, delete, modify and search for a specific product using HTML CSS JavaScript.",
             src: prodstore,
@@ -67,7 +82,7 @@ function Resume() {
 
     return (
         <>
-            <div className="w-full mt-5 md:mt-0 h-auto flex flex-col gap-5 py-5 px-1 md:px-3 items-center border-b-2 border-white" id="Projects">
+            <div className="w-full mt-5 md:mt-0 h-auto flex flex-col gap-5 py-5 px-1 md:px-6 items-center border-b-2 border-white" id="Projects">
                 <div className="text-red-600">1+ YEARS OF EXPERIENCE</div>
                 <div className="text-[50px] text-white font-bold">My Resume</div>
                 <div className="w-full h-14 rounded flex bg-black items-center justify-between ">
@@ -106,15 +121,17 @@ function Resume() {
                         {
                             data2.map((item2, index) => {
                                 return (
-                                    <div className="proj-container flex flex-col items-center basis-full md:basis-[32%] py-4 px-2 md:px-7 md:py-7 bg-neutral-900 rounded-xl">
-                                        <div className=" w-[90%] flex flex-col gap-5">
-                                            <div className="overflow-hidden h-[250px] rounded-xl">
-                                                <img className="imm rounded-xl w-full h-full" src={item2.src} />
-                                            </div>
-                                            <div className="rounded-lg text-red-600 text-2xl">{item2.title}</div>
-                                            <div className="text-white">{item2.desc}</div>
-                                        </div>
 
+                                    <div className="proj-container flex flex-col items-center h-[450px] basis-full mb-3 md:basis-[32%] py-4 px-2 md:px-7 md:py-7 bg-neutral-900 rounded-xl">
+                                        <a href="">
+                                            <div className=" w-[98%] flex flex-col gap-5">
+                                                <div className="overflow-hidden h-[250px] rounded-xl">
+                                                    <img className="imm rounded-xl w-full h-full object-fill" src={item2.src} />
+                                                </div>
+                                                <div className="rounded-lg text-red-600 text-2xl">{item2.title}</div>
+                                                <div className="text-white">{item2.desc}</div>
+                                            </div>
+                                        </a>
                                     </div>
                                 );
                             })

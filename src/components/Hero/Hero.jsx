@@ -11,10 +11,10 @@ function Hero() {
 
     return (
         <>
-            <div className="p-3 pt-9 md:pt-0 md:p-8 border-b-2 border-white flex w-full justify-center items-start md:items-end h-auto md:h-[620px] " id="Home">
-                <div className="w-full flex flex-col  md:flex-row">
+            <div className="px-3 pt-9 md:py-4 md:px-6  border-b-2 border-white flex w-full justify-center items-start md:items-end h-auto md:h-[620px] " id="Home">
+                <div className="w-full flex flex-col  md:flex-row md:justify-between">
                     <div className="flex flex-col basis-1/2 gap-4 justify-between">
-                        <div className="text-white">WELCOME TO MY WORLD</div>
+                        
                         <div className="text-2xl md:text-4xl">Hi, I'm <span className="uppercase text-red-600">bashar katrib</span><br />
                             <span><Typewriter
                                 words={['FULL STACK DEVELOPER !', 'FRONTEND ENGINEER !', 'REACT DEVELOPER !']}
@@ -53,7 +53,7 @@ function Hero() {
 
                         </div>
                     </div>
-                    <div className="flex justify-center items-center basis-1/2">
+                    <div className="flex justify-end items-center basis-1/2">
                         <div className="w-full mt-4 md:mt-0 md:w-3/4 bg-zinc-900 h-[450px] top-2 left-1/3 shadow-2xl rounded-lg overflow-hidden">
                             <img className=" w-full h-full object-cover max-h-full transition-all duration-300 hover:scale-105" src={myphoto} />
                         </div>
