@@ -7,7 +7,7 @@ function Contact() {
 
     return (
         <>
-            <div className='w-full mt-5 md:mt-0 h-auto flex flex-col md:px-9 md:py-14' id='Contact'>
+            <div className='w-full mt-5 md:mt-0 h-auto flex flex-col md:px-6 md:py-14' id='Contact'>
                 <div className='w-full flex flex-col items-center'>
                     <div className=' text-red-600'>CONTACT</div>
                     <div className='text-white text-3xl font-bold'>Contact With Me</div>

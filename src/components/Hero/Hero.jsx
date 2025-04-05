@@ -11,7 +11,7 @@ function Hero() {
 
     return (
         <>
-            <div className="px-3 pt-9 md:py-4 md:px-6  border-b-2 border-white flex w-full justify-center items-start md:items-end h-auto md:h-[620px] " id="Home">
+            <div className="px-3 pt-9  md:px-6 md:py-32  border-b-2 border-white flex w-full justify-center items-start  h-auto md:h-[620px] " id="Home">
                 <div className="w-full flex flex-col  md:flex-row md:justify-between">
                     <div className="flex flex-col basis-1/2 gap-4 justify-between">
                         
@@ -26,7 +26,7 @@ function Hero() {
                                 delaySpeed={1000}
                             /></span>
                         </div>
-                        <div className="text-white text-[17px]">I'm a passionate Front-End Developer with experience in building responsive and user-friendly web applications. I specialize in HTML, CSS, JavaScript, and modern frameworks like React. Always eager to learn and stay updated with the latest web technologies.
+                        <div className="text-white text-[17px]">I'm a passionate Front-End Developer with experience in building responsive and user-friendly web applications. I specialize in HTML, CSS, JavaScript, and modern front-end tools and frameworks such as React, Redux Toolkit, and Tailwind CSS. On the backend side, I have working knowledge of Laravel and experience with Strapi CMS for headless content management. Always eager to learn and stay updated with the latest web technologies.
                         </div>
                         <div className="w-full flex justify-between items-center">
                             <div className="flex flex-col gap-4">

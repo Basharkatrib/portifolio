@@ -44,60 +44,66 @@ function Resume() {
             title: "Photo Land e-commerce",
             desc: "Full Stack Camera e-store where ReactJS front-end and Strapi CMS back-end were used with Redux Toolkit state managenment.",
             src: photoland,
+            link : "https://silly-pasca-77e967.netlify.app"
         },
         {
             id: 2,
             title: "Tikmol e-commerce",
             desc: "Full Stack e-store where ReactJS front-end and Laravel back-end were used with Nova admin interface.",
             src: tikmol,
+            link : "#"
         },
         {
             id: 3,
             title: "Weather App",
             desc: "A simple weather app built with React JS for the frontend, Tailwind CSS for styling, and RESTful API to fetch real-time weather data, offering users an interactive and responsive experience.",
             src: weather,
+            link : "https://illustrious-beignet-ae2bfe.netlify.app"
         },
         {
             id: 4,
             title: "Clothes e-commerce",
             desc: "Full Stack e-store where ReactJS front-end and Strapi CMS Dashboard back-end and Tailwind Css.",
             src: ecomclothes,
+            link : "#"
         },
         {
             id: 5,
             title: "Educational platform",
             desc: "An educational platform that allows you to choose courses, start watching videos, and comment on any video using Laravel..",
             src: courses,
+            link : "#"
         },
         {
             id: 6,
             title: "Store management system",
             desc: "A warehouse management system for selling products where you can add, delete, modify and search for a specific product using HTML CSS JavaScript.",
             src: prodstore,
+            link : "#"
         },
     ]
 
-    const [active, setActive] = useState(1);
+    const [active, setActive] = useState(2);
 
 
     return (
         <>
-            <div className="w-full mt-5 md:mt-0 h-auto flex flex-col gap-5 py-5 px-1 md:px-6 items-center border-b-2 border-white" id="Projects">
+            <div className="w-full mt-5 md:mt-0 h-auto flex flex-col gap-5 py-5 px-1 md:pb-[30px] md:px-6 items-center border-b-2 border-white" id="Projects">
                 <div className="text-red-600">1+ YEARS OF EXPERIENCE</div>
                 <div className="text-[50px] text-white font-bold">My Resume</div>
                 <div className="w-full h-14 rounded flex bg-black items-center justify-between ">
-                    <div onClick={() => setActive(1)} className={`text-[20px] md:text-[30px] basis-1/2 ${active === 1 ? 'border-[1px] border-red-600' : ''} transition-all duration-300 text-white text-2xl text-center h-full flex items-center justify-center hover:bg-zinc-900 rounded`}> Education</div>
-                    <div onClick={() => setActive(2)} className={`text-[20px] md:text-[30px] basis-1/2 ${active === 2 ? 'border-[1px] border-red-600' : ''} transition-all duration-300 text-white text-2xl text-center h-full flex items-center justify-center hover:bg-zinc-900 rounded`}>Projects</div>
+                    <div onClick={() => setActive(1)} className={`text-[20px] cursor-pointer md:text-[30px] basis-1/2 ${active === 1 ? 'border-[1px] border-red-600' : ''} transition-all duration-300 text-white text-2xl text-center h-full flex items-center justify-center hover:bg-zinc-900 rounded`}> Education</div>
+                    <div onClick={() => setActive(2)} className={`text-[20px] cursor-pointer md:text-[30px] basis-1/2 ${active === 2 ? 'border-[1px] border-red-600' : ''} transition-all duration-300 text-white text-2xl text-center h-full flex items-center justify-center hover:bg-zinc-900 rounded`}>Projects</div>
                 </div>
                 <div className={`w-full ${active === 1 ? 'flex' : 'hidden'} flex-col mt-8`}>
                     <div className="w-full flex flex-col gap-2 justify-start">
                         <div className="text-4xl text-center md:text-left md:text-[40px] text-white font-bold">Education Quality</div>
                     </div>
-                    <div className="w-full flex justify-between items-start flex-wrap p-2 md:p-6 gap-3">
+                    <div className="w-full flex justify-between items-start flex-wrap  gap-3">
                         {
                             data.map((item, index) => {
                                 return (
-                                    <div className="flex flex-col basis-full md:basis-[47%] px-2 md:px-7 py-7 md:py-16 bg-gradient-to-t from-slate-700 to-zinc-900 w-[100px] gap-16 text-slate-300 rounded-md transition-all duration-300 hover:text-white hover:to-black">
+                                    <div className="flex flex-col basis-full md:basis-[47%] px-2 md:px-7 md:mt-7 py-7 md:py-16 bg-gradient-to-t from-slate-700 to-zinc-900 w-[100px] gap-16 text-slate-300 rounded-md transition-all duration-300 hover:text-white hover:to-black">
                                         <div className="w-full flex justify-between">
                                             <div className="flex flex-col gap-3">
                                                 <div className="text-2xl text-white font-bold">{item.title}</div>
@@ -117,13 +123,13 @@ function Resume() {
                     <div className="w-full flex flex-col gap-2 justify-start">
                         <div className="text-4xl md:text-[40px] text-center md:text-left text-white font-bold">My Projects</div>
                     </div>
-                    <div className="w-full flex justify-between items-start flex-wrap p-2 md:p-6 gap-3">
+                    <div className="w-full flex justify-between items-start flex-wrap md:mt-7 gap-3">
                         {
                             data2.map((item2, index) => {
                                 return (
 
                                     <div className="proj-container flex flex-col items-center h-[450px] basis-full mb-3 md:basis-[32%] py-4 px-2 md:px-7 md:py-7 bg-neutral-900 rounded-xl">
-                                        <a href="">
+                                        <a href={item2.link}>
                                             <div className=" w-[98%] flex flex-col gap-5">
                                                 <div className="overflow-hidden h-[250px] rounded-xl">
                                                     <img className="imm rounded-xl w-full h-full object-fill" src={item2.src} />
