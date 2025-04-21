@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { Collapse, Dropdown, initTWE } from "tw-elements";
 import logo from '../../assets/logo.png';
 import '../../index.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -47,13 +49,17 @@ function Features() {
         },
     ];
 
+    useEffect(()=>{
+        AOS.init({duration: 2000});
+    },[])
+
 
 
     return (
         <>
-            <div className="w-full p-2 flex flex-wrap border-b-2 border-white py-3 md:py-3 lg:py-20" id="Features">
+            <div className="w-full px-3 md:px-6 flex flex-wrap border-b-2 gap-6 justify-between border-white py-3 md:py-3 lg:py-20" id="Features">
                 {data.map((card, index) => {
-                        return <div className="flex basis-full lg:basis-1/3 md:basis-1/2 p-1 md:p-4" key={card.id}>
+                        return <div data-aos="fade-up" className="flex basis-full lg:basis-[32%] md:basis-[48%] " key={card.id}>
                             <div className="card transition-all duration-500 hover:bg-gradient-to-b from-black from-70% via-slate-800 via-90% to-slate-700 to-200% flex flex-col w-full h-[300px] rounded-md shadow-2xl relative overflow-hidden">
                                 <div className="subcard absolute w-[90%] flex flex-col gap-5 left-4 md:left-10 md:w-[90%] bottom-[-50px] transition-all duration-500">
                                     <div className="w-11">{card.icon}</div>

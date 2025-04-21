@@ -9,15 +9,15 @@ function Navbar() {
         initTWE({ Collapse, Dropdown });
     }, []);
 
-    const navitems = ['Home', 'Features', 'Projects', 'Contact'];
+    const navitems = ['Home', 'Features', 'Projects', 'Experience' , 'Contact'];
 
     return (
         <>
             {/* Labtop Navbar */}
             <nav
-                className="hidden fixed z-10 bg-black w-full flex-nowrap items-center justify-between bg-bodyColor  py-2 shadow-white border-b-2 border-white md:flex-wrap md:justify-start md:py-4 md:px-3 md:flex text-white"
+                className="hidden fixed z-10 bg-black w-full flex-nowrap items-center justify-between  py-2 shadow-white border-b-2 border-white md:flex-wrap md:justify-start px-3 md:py-4 md:px-6 md:flex text-white"
                 data-twe-navbar-ref>
-                <div className="flex w-full flex-wrap items-center justify-between px-3">
+                <div className="flex w-full flex-wrap items-center justify-between">
                     <button
                         className="block border-0 bg-transparent px-2 text-white hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 md:hidden"
                         type="button"

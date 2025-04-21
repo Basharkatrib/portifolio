@@ -8,6 +8,7 @@ import Featurs from './components/Features/Features';
 import Resume from './components/Resume/Resume';
 import Slider from './components/Slider/Slider';
 import Contact from './components/Contact/Contact';
+import AdditionalSkills from './components/AdditionalSkills/AdditionalSkills';
 
 
 function App(props) {
@@ -19,6 +20,7 @@ function App(props) {
     <Hero />
     <Featurs />
     <Resume />
+    <AdditionalSkills />
     <Contact />
     <Footer />
     </>
