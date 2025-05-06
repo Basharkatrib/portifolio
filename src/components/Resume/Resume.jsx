@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Collapse, Dropdown, initTWE } from "tw-elements";
 import logo from '../../assets/logo.png';
-import tikmol from '../../assets/tikmol.png';
+import tikmol from '../../assets/tikmol.gif';
 import ecomimage from '../../assets/R.jpeg';
-import ecomclothes from '../../assets/OIP.jpeg';
-import courses from '../../assets/image.svg';
-import prodstore from '../../assets/productstore.png';
-import photoland from '../../assets/photoland.png';
+import ecomclothes from '../../assets/OIP.gif';
+import courses from '../../assets/courses.gif';
+import prodstore from '../../assets/productstore.gif';
+import photoland from '../../assets/photoland.gif';
 import weather from '../../assets/weather.png';
 import Flyza from '../../assets/Flyza.gif';
 import restaurant from '../../assets/restaurant.gif'
