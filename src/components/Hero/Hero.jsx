@@ -48,27 +48,20 @@ function Hero() {
                                         </span>
                                     </a>
                                 </motion.div>
-
                             </div>
-
-
                         </div>
                     </div>
                     <div className=" justify-center items-end basis-1/2 relative hidden lg:flex">
                         <div className="absolute w-full flex justify-center mt-4 md:mt-0 md:w-4/6 bg-zinc-900 h-3/4  shadow-2xl rounded-lg overflow-hidden">
-
                         </div>
                         <img className="absolute object-cover h-[420px]" src={myphoto} />
-
                     </div>
                     <div className="flex justify-end items-center basis-1/2 lg:hidden">
                         <div className="w-full flex justify-center mt-4 md:mt-0 md:w-full bg-zinc-900 h-[450px] top-2 left-1/3 shadow-2xl rounded-lg overflow-hidden">
                             <img  className=" h-full object-fill max-h-full" src={myphoto} />
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </>
     );
