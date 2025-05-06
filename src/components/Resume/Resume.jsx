@@ -8,7 +8,8 @@ import courses from '../../assets/image.svg';
 import prodstore from '../../assets/productstore.png';
 import photoland from '../../assets/photoland.png';
 import weather from '../../assets/weather.png';
-import Flyza from '../../assets/Flyza.png';
+import Flyza from '../../assets/Flyza.gif';
+import restaurant from '../../assets/restaurant.gif'
 import { FaGlobe } from "react-icons/fa";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -48,46 +49,53 @@ function Resume() {
     const data2 = [
         {
             id: 1,
+            title: "Restaurant",
+            desc: "I developed a restaurant web application using Next.js, featuring a smooth and user-friendly interface with subtle animations for an enhanced user experience.",
+            src: restaurant,
+            link: "https://restaurantbaskat.netlify.app"
+        },
+        {
+            id: 2,
             title: "Flyza Airways",
             desc: "Developed a flight booking web app using React.js, ReduxToolkit for state management, Strapi CMS for content handling, and Tailwind CSS for responsive design.",
             src: Flyza,
             link: "https://aesthetic-paprenjak-4b8a9e.netlify.app"
         },
         {
-            id: 2,
+            id: 3,
             title: "Photo Land e-commerce",
             desc: "Full Stack Camera e-store where ReactJS front-end and Strapi CMS back-end were used with Redux Toolkit state managenment.",
             src: photoland,
             link: "https://stupendous-mermaid-f5d7eb.netlify.app"
         },
         {
-            id: 3,
+            id: 4,
             title: "Tikmol e-commerce",
             desc: "Full Stack e-store where ReactJS front-end and Laravel back-end were used with Nova admin interface.",
             src: tikmol,
             
         },
         {
-            id: 4,
+            id: 5,
             title: "Weather App",
             desc: "A simple weather app built with React JS for the frontend, Tailwind CSS for styling, and RESTful API to fetch real-time weather data, offering users an interactive and responsive experience.",
             src: weather,
             link: "https://illustrious-beignet-ae2bfe.netlify.app"
         },
         {
-            id: 5,
+            id: 6,
             title: "Clothes e-commerce",
             desc: "Full Stack e-store where ReactJS front-end and Strapi CMS Dashboard back-end and Tailwind Css.",
             src: ecomclothes,
         },
         {
-            id: 6,
+            id: 7,
             title: "Educational platform",
             desc: "An educational platform that allows you to choose courses, start watching videos, and comment on any video using Laravel..",
             src: courses,
         },
         {
-            id: 7,
+            id: 8,
             title: "Store management system",
             desc: "A warehouse management system for selling products where you can add, delete, modify and search for a specific product using HTML CSS JavaScript.",
             src: prodstore,

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Typewriter } from 'react-simple-typewriter';
 import { Collapse, Dropdown, initTWE } from "tw-elements";
-import myphoto from '../../assets/photo.png';
+import myphoto from '../../assets/Screenshot_2025-05-06_135148-removebg-preview.png';
 import '../../index.css';
 import { motion } from "motion/react"
 
@@ -12,9 +12,9 @@ function Hero() {
 
     return (
         <>
-            <div className="px-3 pt-24 py-3  md:px-6 md:py-32  border-b-2 border-white flex w-full justify-center items-start  h-auto md:h-[620px] " id="Home">
-                <div className="w-full flex flex-col  md:flex-row md:justify-between">
-                    <div className="flex flex-col basis-1/2 gap-4 justify-between">
+            <div className="px-3 pt-24 py-3  md:px-6  md:pt-32 md:pb-9  border-b-2 border-white flex w-full justify-center items-start" id="Home">
+                <div className="w-full flex h-full flex-col   lg:flex-row lg:justify-between">
+                    <div className="h-full flex flex-col basis-1/2 gap-4 justify-between items-stretch">
 
                         <div className="text-2xl md:text-4xl">Hi, I'm <span className="uppercase text-red-600">bashar katrib</span><br />
                             <span><Typewriter
@@ -27,12 +27,12 @@ function Hero() {
                                 delaySpeed={1000}
                             /></span>
                         </div>
-                        <div className="text-white text-[17px]">I'm a passionate Front-End Developer with experience in building responsive and user-friendly web applications. I specialize in HTML, CSS, JavaScript, and modern front-end tools and frameworks such as React, Redux Toolkit, and Tailwind CSS. On the backend side, I have working knowledge of Laravel and experience with Strapi CMS for headless content management. Always eager to learn and stay updated with the latest web technologies.
+                        <div className="text-white text-[20px]">I'm a passionate Front-End Developer with experience in building responsive and user-friendly web applications. I specialize in HTML, CSS, JavaScript, and modern front-end tools and frameworks such as React, Redux Toolkit, and Tailwind CSS. On the backend side, I have working knowledge of Laravel and experience with Strapi CMS for headless content management. Always eager to learn and stay updated with the latest web technologies.
                         </div>
                         <div className="w-full flex justify-between items-center">
                             <div className="flex flex-col gap-4">
                                 <div className="text-xl">Find me in</div>
-                                <motion.div  animate={{ y: [0 , -5 , 0]}} transition={{repeat: Infinity, duration: 2, ease: "easeInOut" }} className="flex gap-4">
+                                <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }} className="flex gap-4">
                                     <a href="https://www.facebook.com/share/151MJb9EmD/" className="p-2 bg-black rounded-md transition-all duration-300 hover:-translate-y-1" ><span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#205de0]">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                                             <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
@@ -54,8 +54,15 @@ function Hero() {
 
                         </div>
                     </div>
-                    <div className="flex justify-end items-center basis-1/2">
-                        <div className="w-full mt-4 md:mt-0 md:w-3/4 bg-zinc-900 h-[450px] top-2 left-1/3 shadow-2xl rounded-lg overflow-hidden">
+                    <div className=" justify-center items-end basis-1/2 relative hidden lg:flex">
+                        <div className="absolute w-full flex justify-center mt-4 md:mt-0 md:w-4/6 bg-zinc-900 h-3/4  shadow-2xl rounded-lg overflow-hidden">
+
+                        </div>
+                        <img className="absolute object-cover h-[420px]" src={myphoto} />
+
+                    </div>
+                    <div className="flex justify-end items-center basis-1/2 lg:hidden">
+                        <div className="w-full flex justify-center mt-4 md:mt-0 md:w-full bg-zinc-900 h-[450px] top-2 left-1/3 shadow-2xl rounded-lg overflow-hidden">
                             <img  className=" h-full object-fill max-h-full transition-all duration-300 hover:scale-105" src={myphoto} />
                         </div>
 

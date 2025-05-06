@@ -1,6 +1,6 @@
 import '../../index.css';
 import ecomimage from '../../assets/R.jpeg';
-import myphoto from '../../assets/photo.png';
+import myphoto from '../../assets/Screenshot_2025-05-06_135148-removebg-preview.png';
 import { motion } from "motion/react"
 
 
@@ -16,9 +16,9 @@ function Contact() {
                 </div>
                 <div className='flex flex-col  lg-custom:flex-row justify-between gap-9 mt-5'>
                     <div className='flex flex-col basis-[35%] gap-4 p-3 md:p-5 rounded-sm shadow-5-strong'>
-                        <div  className='h-[370px]'>
+                        <div  className='h-[370px] flex justify-center'>
                             <motion.img animate={{ height: [0 , '100%'] }}
-                                transition={{ duration: 3, ease: "easeInOut" }} className=' rounded-sm h-full w-full object-fill' src={myphoto} />
+                                transition={{ duration: 3, ease: "easeInOut" }} className=' rounded-sm h-full w-3/4' src={myphoto} />
                         </div>
                         <div className='text-white text-3xl font-bold'>BASHAR KATRIB</div>
                         <div className=' text-slate-400'>FULL Stack Developer</div>
