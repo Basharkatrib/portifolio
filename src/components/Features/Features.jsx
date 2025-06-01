@@ -81,7 +81,7 @@ function Features() {
                             className="group"
                             key={card.id}
                         >
-                            <div className="bg-zinc-900/50 backdrop-blur-sm p-6 rounded-xl shadow-2xl hover:shadow-red-500/10 transition-all duration-500 hover:-translate-y-2 border border-zinc-800/50 hover:border-red-500/20">
+                            <div className="bg-zinc-900/50 backdrop-blur-sm p-6 rounded-xl shadow-2xl hover:shadow-red-500/10 transition-all duration-500 hover:-translate-y-2 border border-zinc-800/50 hover:border-red-500/20 h-[300px]">
                                 <div className="relative z-10">
                                     <div className="w-14 h-14 mb-6 p-3 bg-gradient-to-br from-red-600/20 to-red-500/5 rounded-lg group-hover:scale-110 transition-transform duration-300">
                                         {card.icon}
