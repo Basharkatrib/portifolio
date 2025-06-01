@@ -1,83 +1,166 @@
 import '../../index.css';
 import ecomimage from '../../assets/R.jpeg';
+import { motion } from "framer-motion";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import myphoto from '../../assets/Screenshot_2025-05-06_135148-removebg-preview.png';
-import { motion } from "motion/react"
-
-
 
 function Contact() {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+                staggerChildren: 0.1
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: { duration: 0.5 }
+        }
+    };
 
     return (
-        <>
-            <div className='w-full mt-5 md:mt-0 h-auto flex flex-col md:px-6 md:py-14' id='Contact'>
-                <div className='w-full flex flex-col items-center'>
-                    <div className=' text-red-600'>CONTACT</div>
-                    <div className='text-white text-3xl font-bold'>Contact With Me</div>
-                </div>
-                <div className='flex flex-col  lg-custom:flex-row justify-between gap-9 mt-5'>
-                    <div className='flex flex-col basis-[35%] gap-4 p-3 md:p-5 rounded-sm shadow-5-strong'>
-                        <div  className='h-[370px] flex justify-center'>
-                            <motion.img animate={{ height: [0 , '100%'] }}
-                                transition={{ duration: 3, ease: "easeInOut" }} className=' rounded-sm h-full w-3/4' src={myphoto} />
+        <motion.section
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            id="Contact"
+            className="w-full py-20 bg-gradient-to-b from-zinc-900 to-black"
+        >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <motion.div variants={itemVariants} className="text-center mb-16">
+                    <span className="inline-block px-4 py-1.5 bg-red-600/10 text-red-500 rounded-full text-sm font-semibold mb-4">
+                        GET IN TOUCH
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+                        Contact With Me
+                    </h2>
+                </motion.div>
+
+                <div className="grid lg:grid-cols-3 gap-8">
+                    <motion.div
+                        variants={itemVariants}
+                        className="lg:col-span-1 bg-zinc-900/30 backdrop-blur-sm rounded-xl p-6 border border-zinc-800/50 hover:border-red-500/20 transition-all duration-300"
+                    >
+                        <div className="aspect-square overflow-hidden rounded-xl mb-6">
+                            <motion.img
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ duration: 0.5 }}
+                                className="w-full h-full object-contain"
+                                src={myphoto}
+                                alt="Profile"
+                            />
                         </div>
-                        <div className='text-white text-3xl font-bold'>BASHAR KATRIB</div>
-                        <div className=' text-slate-400'>FULL Stack Developer</div>
-                        <div className='text-slate-400'>I am honored to receive any communication from anyone regarding work or receiving a project. You can contact me through:.</div>
-                        <div className='text-slate-400'>Phone: +963 937662759</div>
-                        <div className='text-slate-400'>Email: bashar2003katrib@gmail.com</div>
+                        <h3 className="text-2xl font-bold text-white mb-2">BASHAR KATRIB</h3>
+                        <p className="text-red-500 font-medium mb-4">Full Stack Developer</p>
+                        <p className="text-gray-400 mb-6">
+                            I am honored to receive any communication from anyone regarding work or receiving a project. You can contact me through:
+                        </p>
+                        <div className="space-y-3 mb-8">
+                            <p className="text-gray-400">
+                                <span className="font-semibold text-white">Phone:</span> +963 937662759
+                            </p>
+                            <p className="text-gray-400">
+                                <span className="font-semibold text-white">Email:</span> bashar2003katrib@gmail.com
+                            </p>
+                        </div>
                         <div className="flex gap-4">
-                            <motion.a animate={{ scale: [0.5 , 1.5 , 0.5]}} transition={{repeat: Infinity, duration: 1.5, ease: "easeInOut" }} href="https://www.facebook.com/share/151MJb9EmD/" className="p-2 bg-black rounded-md transition-all duration-300 hover:-translate-y-1" ><span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#205de0]">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                    <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
-                                </svg>
-                            </span>
-                            </motion.a>
-                            <motion.a animate={{ scale: [0.5 , 1.5 , 0.5]}} transition={{repeat: Infinity, duration: 1.5, ease: "easeInOut" }} href="https://www.instagram.com/katribbashar?igsh=MW85ZndiNm15eGpqbg==" className="p-2 bg-black rounded-md transition-all duration-300 hover:-translate-y-1">
-                                <span class="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#c13584]">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                        <path
-                                            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                                    </svg>
-                                </span>
-                            </motion.a>
+                            <a
+                                href="https://www.facebook.com/share/151MJb9EmD/"
+                                className="p-3 bg-blue-600/10 text-blue-500 rounded-lg hover:bg-blue-600/20 transition-all duration-300"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FaFacebookF className="w-5 h-5" />
+                            </a>
+                            <a
+                                href="https://www.instagram.com/katribbashar"
+                                className="p-3 bg-pink-600/10 text-pink-500 rounded-lg hover:bg-pink-600/20 transition-all duration-300"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FaInstagram className="w-5 h-5" />
+                            </a>
                         </div>
-                    </div>
-                    <div className='flex flex-col basis-[65%] shadow-5-strong p-3 md:p-5 rounded-sm'>
-                        <form className='w-full flex flex-col justify-between h-full'>
-                            <div className='flex flex-col md:flex-row gap-5 '>
-                                <div className='flex flex-col basis-1/2 text-slate-400'>
-                                    <label>YOUR NAME</label>
-                                    <input className='outline-none bg-zinc-900 p-3 rounded-md' type='text' />
-                                </div>
-                                <div className='flex flex-col basis-1/2 text-slate-400'>
-                                    <label >PHONE NUMBER</label>
-                                    <input className='outline-none bg-zinc-900 p-3 rounded-md' type='text' />
-                                </div>
-                            </div>
-                            <div className='flex flex-col text-slate-400 mt-5 gap-2'>
-                                <label>EMAIL</label>
-                                <input className='outline-none bg-zinc-900 p-3 rounded-md' type='text' />
-                            </div>
-                            <div className='flex flex-col text-slate-400 mt-5 gap-2'>
-                                <label>SUBJECT</label>
-                                <input className='outline-none bg-zinc-900 p-3 rounded-md' type='text' />
-                            </div>
-                            <div className='flex flex-col text-slate-400 mt-5 gap-2'>
-                                <label>MESSAGE</label>
-                                <textarea className='outline-none bg-zinc-900 p-3 rounded-md' type='textaria' rows="11" />
-                            </div>
-                            <input type="submit" value="Send Message" className='mt-5 bg-black p-3 rounded-md w-full transition-all duration-300 hover:bg-neutral-800 hover:text-white' />
+                    </motion.div>
 
+                    <motion.div
+                        variants={itemVariants}
+                        className="lg:col-span-2 bg-zinc-900/30 backdrop-blur-sm rounded-xl p-8 border border-zinc-800/50 hover:border-red-500/20 transition-all duration-300"
+                    >
+                        <form className="grid gap-6">
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-400 mb-2">
+                                        YOUR NAME
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="w-full bg-black/50 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-300"
+                                        placeholder="John Doe"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-400 mb-2">
+                                        PHONE NUMBER
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        className="w-full bg-black/50 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-300"
+                                        placeholder="+1 (555) 000-0000"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-400 mb-2">
+                                    EMAIL
+                                </label>
+                                <input
+                                    type="email"
+                                    className="w-full bg-black/50 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-300"
+                                    placeholder="example@domain.com"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-400 mb-2">
+                                    SUBJECT
+                                </label>
+                                <input
+                                    type="text"
+                                    className="w-full bg-black/50 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-300"
+                                    placeholder="Project Discussion"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-400 mb-2">
+                                    MESSAGE
+                                </label>
+                                <textarea
+                                    rows="6"
+                                    className="w-full bg-black/50 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-300 resize-none"
+                                    placeholder="Your message here..."
+                                ></textarea>
+                            </div>
+                            <motion.button
+                                whileHover={{ scale: 1.01 }}
+                                whileTap={{ scale: 0.99 }}
+                                type="submit"
+                                className="w-full bg-gradient-to-r from-red-600 to-red-500 text-white font-medium py-4 rounded-lg hover:from-red-500 hover:to-red-600 transition-all duration-300"
+                            >
+                                Send Message
+                            </motion.button>
                         </form>
-
-                    </div>
-
+                    </motion.div>
                 </div>
-
-
             </div>
-        </>
-
+        </motion.section>
     );
 }
 

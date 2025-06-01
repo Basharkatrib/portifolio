@@ -13,6 +13,7 @@ import restaurant from '../../assets/restaurant.gif'
 import { FaGlobe } from "react-icons/fa";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { motion } from "framer-motion";
 
 
 
@@ -26,6 +27,11 @@ import ResumeCard from "../ResumeCard/ResumeCard";
 
 
 function Resume() {
+    const [active, setActive] = useState(2);
+
+    useEffect(() => {
+        AOS.init({ duration: 2000 });
+    }, []);
 
     const data = [
         {
@@ -42,9 +48,7 @@ function Resume() {
             desc: "After completing the JavaScript course and passing all the tests, the SoloLearn platform awarded me a certificate of course completion.",
             rate: "100/100",
         },
-
-    ]
-
+    ];
 
     const data2 = [
         {
@@ -73,7 +77,6 @@ function Resume() {
             title: "Tikmol e-commerce",
             desc: "Full Stack e-store where ReactJS front-end and Laravel back-end were used with Nova admin interface.",
             src: tikmol,
-            
         },
         {
             id: 5,
@@ -101,84 +104,143 @@ function Resume() {
             src: prodstore,
             link: "https://basharkatrib.github.io/crud1/"
         },
-    ]
-
-    const [active, setActive] = useState(2);
-
-     useEffect(()=>{
-            AOS.init({duration: 2000});
-        },[])
-
+    ];
 
     return (
-        <>
-            <div className="w-full mt-5 md:mt-0 h-auto overflow-hidden flex flex-col gap-5 py-5 md:pb-[30px] px-3 md:px-6 items-center border-b-2 border-white" id="Projects">
-                <div className="text-red-600">1+ YEARS OF EXPERIENCE</div>
-                <div className="text-[50px] text-white font-bold">My Resume</div>
-                <div className="w-full h-14 rounded flex bg-black items-center justify-between ">
-                    <div onClick={() => setActive(1)} className={`text-[20px] cursor-pointer md:text-[30px] basis-1/2 ${active === 1 ? 'border-[1px] border-red-600' : ''} transition-all duration-300 text-white text-2xl text-center h-full flex items-center justify-center hover:bg-zinc-900 rounded`}> Education</div>
-                    <div onClick={() => setActive(2)} className={`text-[20px] cursor-pointer md:text-[30px] basis-1/2 ${active === 2 ? 'border-[1px] border-red-600' : ''} transition-all duration-300 text-white text-2xl text-center h-full flex items-center justify-center hover:bg-zinc-900 rounded`}>Projects</div>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-full py-20 bg-gradient-to-b from-zinc-900 to-black border-b border-white/10"
+            id="Projects"
+        >
+            <div className="w-full px-3 sm:px-6">
+                <div className="text-center">
+                    <motion.span
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-red-600 font-semibold"
+                    >
+                        1+ YEARS OF EXPERIENCE
+                    </motion.span>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="text-4xl md:text-5xl font-bold text-white mt-2"
+                    >
+                        My Resume
+                    </motion.h2>
                 </div>
-                <div className={`w-full ${active === 1 ? 'flex' : 'hidden'} flex-col mt-8`}>
-                    <div className="w-full flex flex-col gap-2 justify-start">
-                        <div className="text-4xl text-center md:text-left md:text-[40px] text-white font-bold">Education Quality</div>
-                    </div>
-                    <div className="w-full flex justify-between items-start flex-wrap mt-4 gap-3">
-                        {
-                            data.map((item, index) => {
-                                return (
-                                    <div className="flex flex-col basis-full md:basis-[47%] px-2 md:px-7 md:mt-7 py-7 md:py-16 bg-gradient-to-t from-slate-700 to-zinc-900 w-[100px] gap-16 text-slate-300 rounded-md transition-all duration-300 hover:text-white hover:to-black">
-                                        <div className="w-full flex justify-between">
-                                            <div className="flex flex-col gap-3">
-                                                <div className="text-2xl text-white font-bold">{item.title}</div>
-                                                <div>{item.subtitle}</div>
 
-                                            </div>
-                                            <div className="rate h-fit rounded-lg p-2 text-red-600 font-bold bg-black">{item.rate}</div>
+                <div className="mt-12">
+                    <div className="bg-zinc-900/50 backdrop-blur-sm p-1 rounded-xl flex gap-2">
+                        {['Education', 'Projects'].map((tab, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setActive(index + 1)}
+                                className={`flex-1 py-3 px-6 rounded-lg text-lg font-medium transition-all duration-300 ${
+                                    active === index + 1
+                                        ? 'bg-red-600 text-white'
+                                        : 'text-gray-400 hover:text-white'
+                                }`}
+                            >
+                                {tab}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="mt-16">
+                    {/* Education Section */}
+                    <div className={`${active === 1 ? 'block' : 'hidden'}`}>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                            className="grid md:grid-cols-2 gap-8"
+                        >
+                            {data.map((item, index) => (
+                                <motion.div
+                                    key={item.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="group bg-gradient-to-b from-zinc-900/80 to-black/50 backdrop-blur-sm rounded-xl p-6 border border-zinc-800/50 hover:border-red-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/5"
+                                >
+                                    <div className="flex justify-between items-start">
+                                        <div>
+                                            <h3 className="text-xl font-bold text-white group-hover:text-red-500 transition-colors duration-300">
+                                                {item.title}
+                                            </h3>
+                                            <p className="text-gray-400 mt-2 group-hover:text-gray-300 transition-colors duration-300">
+                                                {item.subtitle}
+                                            </p>
                                         </div>
-                                        <div>{item.desc}</div>
+                                        <span className="px-4 py-2 bg-red-600/10 text-red-500 rounded-full text-sm font-medium">
+                                            {item.rate}
+                                        </span>
                                     </div>
-                                );
-                            })
-                        }
+                                    <p className="mt-6 text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                                        {item.desc}
+                                    </p>
+                                </motion.div>
+                            ))}
+                        </motion.div>
                     </div>
-                </div>
 
-                <div className={`w-full ${active === 2 ? 'flex' : 'hidden'} flex-col mt-8`}>
-                    <div className="w-full flex flex-col gap-2 justify-start">
-                        <div className="text-4xl md:text-[40px] text-center md:text-left text-white font-bold">My Projects</div>
-                    </div>
-                    <div className="w-full flex justify-between items-start flex-wrap mt-4 gap-3">
-                        {
-                            data2.map((item2, index) => {
-                                return (
-
-                                    <div data-aos="fade-left" className="proj-container  flex flex-col items-center md:h-[480px] xl:h-[460px]  mb-3  basis-full lg:basis-[32%] md:basis-[48%] px-2 md:px-7 py-4 md:py-7 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] shadow-2xl bg-opacity-90 rounded-xl">
-                                        <div className=" w-[98%] flex flex-col gap-3">
-                                            <div className="overflow-hidden h-[250px] rounded-xl">
-                                                <img className="imm rounded-xl w-full h-full object-fill" src={item2.src} />
-                                            </div>
-                                            <div className="w-full flex justify-between">
-                                                <div className="rounded-lg text-red-600 text-2xl">{item2.title}</div>
-
-                                                <span className={`text-lg ${item2.link ? 'block' : 'hidden'} w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-red-600 duration-300 cursor-pointer`}>
-                                                    <a href={item2.link} target="_blank" rel="noopener noreferrer">
-                                                        <FaGlobe /></a>
-                                                </span>
-                                            </div>
-
-                                            <div className="text-white">{item2.desc}</div>
+                    {/* Projects Section */}
+                    <div className={`${active === 2 ? 'block' : 'hidden'}`}>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                            className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+                        >
+                            {data2.map((project, index) => (
+                                <motion.div
+                                    key={project.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="group bg-gradient-to-b from-zinc-900/80 to-black/50 backdrop-blur-sm rounded-xl overflow-hidden border border-zinc-800/50 hover:border-red-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/5"
+                                >
+                                    <div className="aspect-video overflow-hidden">
+                                        <img
+                                            src={project.src}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                        />
+                                    </div>
+                                    <div className="p-6">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <h3 className="text-xl font-bold text-white group-hover:text-red-500 transition-colors duration-300">
+                                                {project.title}
+                                            </h3>
+                                            {project.link && (
+                                                <a
+                                                    href={project.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="p-2 bg-zinc-800 rounded-full text-gray-400 hover:text-red-500 hover:bg-zinc-700 transition-all duration-300"
+                                                >
+                                                    <FaGlobe className="w-5 h-5" />
+                                                </a>
+                                            )}
                                         </div>
+                                        <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                                            {project.desc}
+                                        </p>
                                     </div>
-                                );
-                            })
-                        }
+                                </motion.div>
+                            ))}
+                        </motion.div>
                     </div>
                 </div>
-
-
             </div>
-        </>
+        </motion.div>
     );
 }
+
 export default Resume;

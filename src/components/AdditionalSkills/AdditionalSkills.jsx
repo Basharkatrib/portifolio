@@ -1,55 +1,114 @@
+import { motion } from "framer-motion";
 import ResumeCard from "../ResumeCard/ResumeCard";
 
-
 function AdditionalSkills() {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+                staggerChildren: 0.15
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { y: 30, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
+
     return (
-        <div
+        <motion.section
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             id="Experience"
-            className={`w-full flex flex-col gap-10 py-12 px-3 md:px-6  border-b-2 border-white overflow-hidden`}
+            className="w-full py-20 bg-gradient-to-b from-black via-zinc-900 to-black border-b border-white/10"
         >
-            <div className=" font-titleFont flex flex-col text-center gap-4">
-                <h2 className="text-3xl md:text-4xl text-white font-bold">Additional skills & Experience</h2>
-            </div>
-            {/* part one */}
-            <div className="w-full flex flex-col md:flex-row justify-between gap-8">
-                <div>
+            <div className="px-3 sm:px-6">
+                <motion.div
+                    variants={itemVariants}
+                    className="text-center mb-16"
+                >
+                    <span className="inline-block px-4 py-1 bg-red-600/10 text-red-500 rounded-full text-sm font-medium tracking-wide">
+                        MY JOURNEY
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mt-4">
+                        Additional Skills & Experience
+                    </h2>
+                </motion.div>
 
-                    <div className="mt-1 w-full  border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10">
-                        <ResumeCard
-                            title="Training grant at AraTech Company"
-                            subTitle="Five-month training opportunity"
-                            result="100%"
-                            des="The opportunity was to train as a Full Stack developer in several web fields, through which I gained a lot of experience."
-                        />
-                        <ResumeCard
-                            title="Web Development Course at Techno Home"
-                            subTitle="Continuous web training for a period of four months"
-                            result="95%"
-                            des="The training was mainly based on the web and back-end in particular, specifically the ASP.NET Core framework."
-                        />
-                    </div>
+                <div className="grid md:grid-cols-2 gap-12">
+                    {[
+                        [
+                            {
+                                title: "Training grant at AraTech Company",
+                                subTitle: "Five-month training opportunity",
+                                result: "100%",
+                                des: "A Full Stack training that gave me strong skills in web development through hands-on experience."
+                            },
+                            {
+                                title: "Web Development Course at Techno Home",
+                                subTitle: "Four months intensive course",
+                                result: "95%",
+                                des: "Focused on web development with strong emphasis on ASP.NET Core and backend logic."
+                            }
+                        ],
+                        [
+                            {
+                                title: "Working within a passionate team",
+                                subTitle: "Remote collaboration & team synergy",
+                                result: "Online",
+                                des: "Collaborated with a team to build dynamic websites, enhancing my skills in teamwork and project management."
+                            },
+                            {
+                                title: "Continuous learning",
+                                subTitle: "Self-driven & up-to-date",
+                                result: "100%",
+                                des: "Tech is evolving rapidly, and I keep pace by constantly learning and refining my skills."
+                            }
+                        ]
+                    ].map((column, columnIndex) => (
+                        <motion.div
+                            key={columnIndex}
+                            variants={itemVariants}
+                            className="relative flex flex-col gap-8"
+                        >
+                            {/* Vertical timeline line */}
+
+                            <div className="space-y-10">
+                                {column.map((item, index) => (
+                                    <motion.div
+                                        key={index}
+                                        variants={itemVariants}
+                                        className="relative"
+                                    >
+                                        {/* Dot */}
+                                        
+                                        {/* Card */}
+                                        <div className="h-full">
+                                            <ResumeCard
+                                                title={item.title}
+                                                subTitle={item.subTitle}
+                                                result={item.result}
+                                                des={item.des}
+                                            />
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
-                {/* part Two */}
-
-                <div>
-
-                    <div className=" w-full  border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10">
-                        <ResumeCard
-                            title="Working within a passionate team"
-                            subTitle="Remote collaboration to increase skills and software development"
-                            result="Online"
-                            des="I worked within a team that was passionate about developing and raising the capabilities of creating websites. It was a unique experience and provided me with a lot of skills."
-                        />
-                        <ResumeCard
-                            title="Continuous learning"
-                            subTitle="Ability to keep up with the latest updates"
-                            result="100%"
-                            des="The technical field is developing very rapidly, so I seek to keep pace with this speed and development and increase my experience and skills."
-                        />
-                    </div>
-                </div>
             </div>
-        </div>
+        </motion.section>
     );
 }
+
 export default AdditionalSkills;

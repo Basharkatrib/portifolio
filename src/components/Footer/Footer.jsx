@@ -18,7 +18,7 @@ function Footer() {
     return (
         <>
             <footer
-                class="flex flex-col items-center  ">
+                class="flex flex-col items-center bg-black ">
                 <div class="w-full bg-black/5 p-4 text-center">
                     © 2024 Bashar Katrib
                 </div>

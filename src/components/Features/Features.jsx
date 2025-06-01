@@ -1,7 +1,5 @@
 import { useEffect } from "react";
-import { Collapse, Dropdown, initTWE } from "tw-elements";
-import logo from '../../assets/logo.png';
-import '../../index.css';
+import { motion } from "framer-motion";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -49,29 +47,65 @@ function Features() {
         },
     ];
 
-    useEffect(()=>{
-        AOS.init({duration: 2000});
-    },[])
-
-
+    useEffect(() => {
+        AOS.init({ duration: 1500, once: true });
+    }, []);
 
     return (
-        <>
-            <div className="w-full px-3 md:px-6 flex flex-wrap border-b-2 gap-6 justify-between border-white py-3 md:py-3 lg:py-20" id="Features">
-                {data.map((card, index) => {
-                        return <div data-aos="fade-up" className="flex basis-full lg:basis-[32%] md:basis-[48%] " key={card.id}>
-                            <div className="card transition-all duration-500 hover:bg-gradient-to-b from-black from-70% via-slate-800 via-90% to-slate-700 to-200% flex flex-col w-full h-[300px] rounded-md shadow-2xl relative overflow-hidden">
-                                <div className="subcard absolute w-[90%] flex flex-col gap-5 left-4 md:left-10 md:w-[90%] bottom-[-50px] transition-all duration-500">
-                                    <div className="w-11">{card.icon}</div>
-                                    <div className="text-white text-2xl md:text-3xl">{card.title}</div>
-                                    <div className="text-slate-500 w-full">{card.subtitle}</div>
-                                    <div className="w-11"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="red" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></div>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-full px-4 md:px-8 py-16 md:py-24 bg-gradient-to-b from-zinc-900 to-black"
+            id="Features"
+        >
+            <div className="max-w-7xl mx-auto">
+                <motion.div 
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent">
+                        My Features
+                    </h2>
+                    <p className="text-gray-400 text-lg">Key skills and capabilities that define my professional profile</p>
+                </motion.div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {data.map((card, index) => (
+                        <motion.div
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: index * 0.1 }}
+                            className="group"
+                            key={card.id}
+                        >
+                            <div className="bg-zinc-900/50 backdrop-blur-sm p-6 rounded-xl shadow-2xl hover:shadow-red-500/10 transition-all duration-500 hover:-translate-y-2 border border-zinc-800/50 hover:border-red-500/20">
+                                <div className="relative z-10">
+                                    <div className="w-14 h-14 mb-6 p-3 bg-gradient-to-br from-red-600/20 to-red-500/5 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                                        {card.icon}
+                                    </div>
+                                    <h3 className="text-2xl font-semibold text-white mb-4 group-hover:text-red-500 transition-colors duration-300">
+                                        {card.title}
+                                    </h3>
+                                    <p className="text-gray-400 leading-relaxed mb-6">
+                                        {card.subtitle}
+                                    </p>
+                                    <div className="flex items-center text-red-500 group-hover:translate-x-2 transition-transform duration-300">
+                                        <span className="mr-2 font-semibold">Learn More</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 448 512">
+                                            <path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                        </svg>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    })}
+                        </motion.div>
+                    ))}
+                </div>
             </div>
-        </>
+        </motion.div>
     );
 }
+
 export default Features;
