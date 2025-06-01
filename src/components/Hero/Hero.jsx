@@ -12,7 +12,7 @@ function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="min-h-screen px-3 pt-24 py-3 md:px-6 md:pt-32 md:pb-9 border-b-2 border-white/10 flex w-full justify-center items-start bg-gradient-to-b from-zinc-900 to-black"
+            className=" px-3 pt-24 py-3 md:px-6 md:pt-32 md:pb-9 border-b-2 border-white/10 flex w-full justify-center items-start bg-gradient-to-b from-zinc-900 to-black"
             id="Home"
         >
             <div className="w-full flex h-full flex-col lg:flex-row lg:justify-between max-w-7xl mx-auto">
