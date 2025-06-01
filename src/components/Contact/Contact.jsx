@@ -33,7 +33,7 @@ function Contact() {
             id="Contact"
             className="w-full py-20 bg-gradient-to-b from-zinc-900 to-black"
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="px-3 sm:px-6">
                 <motion.div variants={itemVariants} className="text-center mb-16">
                     <span className="inline-block px-4 py-1.5 bg-red-600/10 text-red-500 rounded-full text-sm font-semibold mb-4">
                         GET IN TOUCH
