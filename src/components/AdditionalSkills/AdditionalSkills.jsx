@@ -48,30 +48,30 @@ function AdditionalSkills() {
                     {[
                         [
                             {
-                                title: "Training grant at AraTech Company",
-                                subTitle: "Five-month training opportunity",
+                                title: "Full Stack Development Training at AraTech Company",
+                                subTitle: "Five-month intensive training program",
                                 result: "100%",
-                                des: "A Full Stack training that gave me strong skills in web development through hands-on experience."
+                                des: "Comprehensive Full Stack training covering React.js, Laravel, database design, and modern web development practices with hands-on project experience."
                             },
                             {
-                                title: "Web Development Course at Techno Home",
-                                subTitle: "Four months intensive course",
+                                title: "Advanced Web Development Course at Techno Home",
+                                subTitle: "Four months specialized course",
                                 result: "95%",
-                                des: "Focused on web development with strong emphasis on ASP.NET Core and backend logic."
+                                des: "Focused on advanced web development techniques, ASP.NET Core, backend architecture, and modern development methodologies."
                             }
                         ],
                         [
                             {
-                                title: "Working within a passionate team",
-                                subTitle: "Remote collaboration & team synergy",
-                                result: "Online",
-                                des: "Collaborated with a team to build dynamic websites, enhancing my skills in teamwork and project management."
+                                title: "Professional Team Collaboration",
+                                subTitle: "Remote & on-site development projects",
+                                result: "2+ Years",
+                                des: "Successfully collaborated with development teams to build dynamic web applications, e-commerce platforms, and RESTful APIs using React.js and Laravel."
                             },
                             {
-                                title: "Continuous learning",
-                                subTitle: "Self-driven & up-to-date",
+                                title: "Continuous Learning & Skill Development",
+                                subTitle: "Self-driven & technology-focused",
                                 result: "100%",
-                                des: "Tech is evolving rapidly, and I keep pace by constantly learning and refining my skills."
+                                des: "Committed to staying current with the latest technologies, frameworks, and best practices in web development, particularly in React.js ecosystem and Laravel framework."
                             }
                         ]
                     ].map((column, columnIndex) => (

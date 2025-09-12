@@ -59,9 +59,9 @@ function Contact() {
                             />
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-2">BASHAR KATRIB</h3>
-                        <p className="text-red-500 font-medium mb-4">Full Stack Developer</p>
+                        <p className="text-red-500 font-medium mb-4">Full Stack Developer | React.js & Laravel Expert</p>
                         <p className="text-gray-400 mb-6">
-                            I am honored to receive any communication from anyone regarding work or receiving a project. You can contact me through:
+                            I am a passionate Full Stack Developer with 2+ years of experience in React.js and Laravel. I specialize in building modern web applications, e-commerce platforms, and RESTful APIs. I'm always excited to discuss new opportunities and projects.
                         </p>
                         <div className="space-y-3 mb-8">
                             <p className="text-gray-400">

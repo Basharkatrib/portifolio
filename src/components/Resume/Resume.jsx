@@ -10,7 +10,7 @@ import photoland from '../../assets/photoland.gif';
 import weather from '../../assets/weather.png';
 import Flyza from '../../assets/Flyza.gif';
 import restaurant from '../../assets/restaurant.gif'
-import { FaGlobe } from "react-icons/fa";
+import { FaGlobe, FaGithub } from "react-icons/fa";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from "framer-motion";
@@ -56,53 +56,61 @@ function Resume() {
             title: "Restaurant",
             desc: "I developed a restaurant web application using Next.js, featuring a smooth and user-friendly interface with subtle animations for an enhanced user experience.",
             src: restaurant,
-            link: "https://restaurantbaskat.netlify.app"
+            link: "https://restaurantbaskat.netlify.app",
+            github: "https://github.com/basharkatrib/restaurant-nextjs"
         },
         {
             id: 2,
             title: "Flyza Airways",
             desc: "Developed a flight booking web app using React.js, ReduxToolkit for state management, Strapi CMS for content handling, and Tailwind CSS for responsive design.",
             src: Flyza,
-            link: "https://aesthetic-paprenjak-4b8a9e.netlify.app"
+            link: "https://aesthetic-paprenjak-4b8a9e.netlify.app",
+            github: "https://github.com/basharkatrib/flyza-airways"
         },
         {
             id: 3,
             title: "Photo Land e-commerce",
             desc: "Full Stack Camera e-store where ReactJS front-end and Strapi CMS back-end were used with Redux Toolkit state managenment.",
             src: photoland,
-            link: "https://stupendous-mermaid-f5d7eb.netlify.app"
+            link: "https://stupendous-mermaid-f5d7eb.netlify.app",
+            github: "https://github.com/basharkatrib/photo-land-ecommerce"
         },
         {
             id: 4,
             title: "Tikmol e-commerce",
             desc: "Full Stack e-store where ReactJS front-end and Laravel back-end were used with Nova admin interface.",
             src: tikmol,
+            github: "https://github.com/basharkatrib/tikmol-ecommerce"
         },
         {
             id: 5,
             title: "Weather App",
             desc: "A simple weather app built with React JS for the frontend, Tailwind CSS for styling, and RESTful API to fetch real-time weather data, offering users an interactive and responsive experience.",
             src: weather,
-            link: "https://illustrious-beignet-ae2bfe.netlify.app"
+            link: "https://illustrious-beignet-ae2bfe.netlify.app",
+            github: "https://github.com/basharkatrib/weather-app"
         },
         {
             id: 6,
             title: "Clothes e-commerce",
             desc: "Full Stack e-store where ReactJS front-end and Strapi CMS Dashboard back-end and Tailwind Css.",
             src: ecomclothes,
+            github: "https://github.com/basharkatrib/clothes-ecommerce"
         },
         {
             id: 7,
             title: "Educational platform",
             desc: "An educational platform that allows you to choose courses, start watching videos, and comment on any video using Laravel..",
             src: courses,
+            github: "https://github.com/basharkatrib/educational-platform"
         },
         {
             id: 8,
             title: "Store management system",
             desc: "A warehouse management system for selling products where you can add, delete, modify and search for a specific product using HTML CSS JavaScript.",
             src: prodstore,
-            link: "https://basharkatrib.github.io/crud1/"
+            link: "https://basharkatrib.github.io/crud1/",
+            github: "https://github.com/basharkatrib/store-management-system"
         },
     ];
 
@@ -122,7 +130,7 @@ function Resume() {
                         transition={{ delay: 0.2 }}
                         className="text-red-600 font-semibold"
                     >
-                        1+ YEARS OF EXPERIENCE
+                        2+ YEARS OF EXPERIENCE
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -218,16 +226,30 @@ function Resume() {
                                             <h3 className="text-xl font-bold text-white group-hover:text-red-500 transition-colors duration-300">
                                                 {project.title}
                                             </h3>
-                                            {project.link && (
-                                                <a
-                                                    href={project.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="p-2 bg-zinc-800 rounded-full text-gray-400 hover:text-red-500 hover:bg-zinc-700 transition-all duration-300"
-                                                >
-                                                    <FaGlobe className="w-5 h-5" />
-                                                </a>
-                                            )}
+                                            <div className="flex gap-2">
+                                                {project.link && (
+                                                    <a
+                                                        href={project.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="p-2 bg-zinc-800 rounded-full text-gray-400 hover:text-red-500 hover:bg-zinc-700 transition-all duration-300"
+                                                        title="View Live Demo"
+                                                    >
+                                                        <FaGlobe className="w-5 h-5" />
+                                                    </a>
+                                                )}
+                                                {project.github && (
+                                                    <a
+                                                        href={project.github}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="p-2 bg-zinc-800 rounded-full text-gray-400 hover:text-white hover:bg-zinc-700 transition-all duration-300"
+                                                        title="View Source Code"
+                                                    >
+                                                        <FaGithub className="w-5 h-5" />
+                                                    </a>
+                                                )}
+                                            </div>
                                         </div>
                                         <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                                             {project.desc}

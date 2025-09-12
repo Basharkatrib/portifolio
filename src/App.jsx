@@ -12,17 +12,17 @@ import AdditionalSkills from './components/AdditionalSkills/AdditionalSkills';
 
 
 function App(props) {
- 
+
 
   return (
     <>
-    <Navbar />
-    <Hero />
-    <Featurs />
-    <Resume />
-    <AdditionalSkills />
-    <Contact />
-    <Footer />
+      <Navbar />
+      <Hero />
+      <Featurs />
+      <Resume />
+      <AdditionalSkills />
+      <Contact />
+      <Footer />
     </>
   );
 }
