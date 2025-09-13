@@ -45,14 +45,20 @@ function Navbar() {
                         id="navbarSupportedContent7"
                         data-twe-collapse-item>
                         <div className="flex justify-between items-center w-full">
-                            <div className="flex items-center gap-2">
+                            <Link
+                                to="Home"
+                                smooth={true}
+                                offset={-70}
+                                duration={500}
+                                className="flex items-center gap-2 cursor-pointer"
+                            >
                                 <div className="w-12 h-12 overflow-hidden">
                                     <img className="w-12 h-12 rounded-full transition duration-300 hover:scale-110" src={logo} />
                                 </div>
                                 <div className="font-bold text-2xl text-gray-400">
                                     BASHAR
                                 </div>
-                            </div>
+                            </Link>
                             <ul
                                 className="list-style-none text-xl ms-auto flex flex-col ps-0 md:mt-1 md:flex-row"
                                 data-twe-navbar-nav-ref>
@@ -95,9 +101,17 @@ function Navbar() {
                 data-twe-navbar-ref>
                 <div class="flex w-full flex-wrap items-center justify-between px-3">
                     <div className="flex justify-between items-center w-full">
-                        <div className="w-12 h-12 overflow-hidden">
-                            <img className="w-12 h-12 rounded-full transition duration-300 hover:scale-110" src={logo} />
-                        </div>
+                        <Link
+                            to="Home"
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                            className="cursor-pointer"
+                        >
+                            <div className="w-12 h-12 overflow-hidden">
+                                <img className="w-12 h-12 rounded-full transition duration-300 hover:scale-110" src={logo} />
+                            </div>
+                        </Link>
                         <button
                             class="block border-0 h-10 bg-black rounded-md px-2  hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
                             type="button"

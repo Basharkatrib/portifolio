@@ -33,7 +33,7 @@ function Hero() {
                         <br />
                         <span className="text-2xl md:text-4xl">
                             <Typewriter
-                                words={['FULL STACK DEVELOPER !', 'FRONT-END ENGINEER !', 'REACT & Laravel DEVELOPER !']}
+                                words={['FULL STACK DEVELOPER !', 'REACT JS DEVELOPER !', 'LARAVEL DEVELOPER !']}
                                 loop={true}
                                 cursor
                                 cursorStyle="_"

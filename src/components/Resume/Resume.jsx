@@ -9,6 +9,7 @@ import prodstore from '../../assets/productstore.gif';
 import photoland from '../../assets/photoland.gif';
 import weather from '../../assets/weather.png';
 import Flyza from '../../assets/Flyza.gif';
+import Learnova from '../../assets/learnova.png'
 import restaurant from '../../assets/restaurant.gif'
 import { FaGlobe, FaGithub } from "react-icons/fa";
 import AOS from 'aos';
@@ -53,64 +54,81 @@ function Resume() {
     const data2 = [
         {
             id: 1,
+            title: "LearNova-Educational platform",
+            desc: "A modern e-learning platform built with React.js, Redux Toolkit, Tailwind CSS, and Framer Motion featuring both dark and light modes for better user experience. The backend is powered by Laravel, providing a secure REST API and authentication handled through Laravel Sanctum.",
+            src: Learnova,
+            link: "https://learnovaeducation.netlify.app",
+            github: "https://github.com/Basharkatrib/E-learning-client",
+            technologies: ["React", "Tailwind CSS", "Framer Motion", "Laravel API"]
+        },
+        {
+            id: 2,
             title: "Restaurant",
             desc: "I developed a restaurant web application using Next.js, featuring a smooth and user-friendly interface with subtle animations for an enhanced user experience.",
             src: restaurant,
             link: "https://restaurantbaskat.netlify.app",
-            github: "https://github.com/basharkatrib/restaurant-nextjs"
+            github: "https://github.com/Basharkatrib/My_Next",
+            technologies: ["Next.js", "React", "Tailwind CSS", "Framer Motion"]
         },
         {
-            id: 2,
+            id: 3,
             title: "Flyza Airways",
             desc: "Developed a flight booking web app using React.js, ReduxToolkit for state management, Strapi CMS for content handling, and Tailwind CSS for responsive design.",
             src: Flyza,
             link: "https://aesthetic-paprenjak-4b8a9e.netlify.app",
-            github: "https://github.com/basharkatrib/flyza-airways"
+            github: "https://github.com/Basharkatrib/Flights_client",
+            technologies: ["React", "Redux Toolkit", "Strapi CMS", "Tailwind CSS"]
         },
         {
-            id: 3,
+            id: 4,
             title: "Photo Land e-commerce",
             desc: "Full Stack Camera e-store where ReactJS front-end and Strapi CMS back-end were used with Redux Toolkit state managenment.",
             src: photoland,
             link: "https://stupendous-mermaid-f5d7eb.netlify.app",
-            github: "https://github.com/basharkatrib/photo-land-ecommerce"
-        },
-        {
-            id: 4,
-            title: "Tikmol e-commerce",
-            desc: "Full Stack e-store where ReactJS front-end and Laravel back-end were used with Nova admin interface.",
-            src: tikmol,
-            github: "https://github.com/basharkatrib/tikmol-ecommerce"
+            github: "https://github.com/Basharkatrib/PhotoLand-ecommerce",
+            technologies: ["React", "Strapi CMS", "Redux Toolkit", "CSS"]
         },
         {
             id: 5,
+            title: "Tikmol e-commerce",
+            desc: "Full Stack e-store where ReactJS front-end and Laravel back-end were used with Nova admin interface.",
+            src: tikmol,
+            github: "https://github.com/Basharkatrib/tikmol-front-addanim-v2",
+            technologies: ["React", "Laravel", "Nova", "MySQL"]
+        },
+        {
+            id: 6,
             title: "Weather App",
             desc: "A simple weather app built with React JS for the frontend, Tailwind CSS for styling, and RESTful API to fetch real-time weather data, offering users an interactive and responsive experience.",
             src: weather,
             link: "https://illustrious-beignet-ae2bfe.netlify.app",
-            github: "https://github.com/basharkatrib/weather-app"
-        },
-        {
-            id: 6,
-            title: "Clothes e-commerce",
-            desc: "Full Stack e-store where ReactJS front-end and Strapi CMS Dashboard back-end and Tailwind Css.",
-            src: ecomclothes,
-            github: "https://github.com/basharkatrib/clothes-ecommerce"
+            github: "https://github.com/Basharkatrib/WeatherApp",
+            technologies: ["React", "Tailwind CSS", "API", "JavaScript"]
         },
         {
             id: 7,
-            title: "Educational platform",
-            desc: "An educational platform that allows you to choose courses, start watching videos, and comment on any video using Laravel..",
-            src: courses,
-            github: "https://github.com/basharkatrib/educational-platform"
+            title: "Clothes e-commerce",
+            desc: "Full Stack e-store where ReactJS front-end and Strapi CMS Dashboard back-end and Tailwind Css.",
+            src: ecomclothes,
+            github: "https://github.com/Basharkatrib/ecom-wear",
+            technologies: ["React", "Strapi CMS", "Tailwind CSS", "JavaScript"]
         },
         {
             id: 8,
+            title: "Educational platform",
+            desc: "An educational platform that allows you to choose courses, start watching videos, and comment on any video using Laravel..",
+            src: courses,
+            github: "https://github.com/Basharkatrib/Courses-t1",
+            technologies: ["Laravel", "PHP", "MySQL", "Blade"]
+        },
+        {
+            id: 9,
             title: "Store management system",
             desc: "A warehouse management system for selling products where you can add, delete, modify and search for a specific product using HTML CSS JavaScript.",
             src: prodstore,
             link: "https://basharkatrib.github.io/crud1/",
-            github: "https://github.com/basharkatrib/store-management-system"
+            github: "https://github.com/Basharkatrib/crud1",
+            technologies: ["HTML", "CSS", "JavaScript", "Local Storage"]
         },
     ];
 
@@ -214,12 +232,36 @@ function Resume() {
                                     transition={{ delay: index * 0.1 }}
                                     className="group bg-gradient-to-b from-zinc-900/80 to-black/50 backdrop-blur-sm rounded-xl overflow-hidden border border-zinc-800/50 hover:border-red-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/5"
                                 >
-                                    <div className="aspect-video overflow-hidden">
+                                    <div className="aspect-video overflow-hidden relative">
                                         <img
                                             src={project.src}
                                             alt={project.title}
                                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                         />
+                                        {/* Technologies overlay on hover */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
+                                            <div className="w-full p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                                <div className="flex flex-wrap gap-2 justify-center">
+                                                    {project.technologies.map((tech, techIndex) => (
+                                                        <motion.span
+                                                            key={techIndex}
+                                                            initial={{ opacity: 0, scale: 0.8 }}
+                                                            animate={{ 
+                                                                opacity: 1, 
+                                                                scale: 1,
+                                                                transition: { 
+                                                                    delay: techIndex * 0.1,
+                                                                    duration: 0.3
+                                                                }
+                                                            }}
+                                                            className="px-3 py-1 bg-red-600/20 backdrop-blur-sm text-red-400 text-xs font-medium rounded-full border border-red-500/30 hover:bg-red-600/30 hover:border-red-400/50 transition-all duration-300"
+                                                        >
+                                                            {tech}
+                                                        </motion.span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className="p-6">
                                         <div className="flex items-center justify-between mb-4">
