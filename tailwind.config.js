@@ -25,6 +25,6 @@ module.exports = {
       },
     },
   },
-  darkMode: "className",
+  darkMode: "class",
   plugins: [require("tw-elements/plugin.cjs")],
 };

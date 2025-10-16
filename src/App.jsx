@@ -15,7 +15,7 @@ function App(props) {
 
 
   return (
-    <>
+    <div className="min-h-screen bg-white text-zinc-900 dark:bg-[#0a0a0a] dark:text-neutral-100">
       <Navbar />
       <Hero />
       <Featurs />
@@ -23,7 +23,7 @@ function App(props) {
       <AdditionalSkills />
       <Contact />
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -12,6 +12,7 @@ import Flyza from '../../assets/Flyza.gif';
 import Learnova from '../../assets/learnova.png'
 import restaurant from '../../assets/restaurant.gif'
 import { FaGlobe, FaGithub } from "react-icons/fa";
+import { useI18n } from '../../i18n.jsx'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from "framer-motion";
@@ -28,6 +29,7 @@ import ResumeCard from "../ResumeCard/ResumeCard";
 
 
 function Resume() {
+    const { t } = useI18n();
     const [active, setActive] = useState(2);
 
     useEffect(() => {
@@ -37,25 +39,25 @@ function Resume() {
     const data = [
         {
             id: 1,
-            title: "Bachelor's degree in information technology",
-            subtitle: "University of Lattakia in Syria",
-            desc: "My continuous learning at university and my perseverance in studying gave me the opportunity to be able to work as a team and develop.",
-            rate: "85/100",
+            title: t('resume.education.1.title'),
+            subtitle: t('resume.education.1.subtitle'),
+            desc: t('resume.education.1.desc'),
+            rate: t('resume.education.1.rate'),
         },
         {
             id: 2,
-            title: "JavaScript Course Completion Certificate",
-            subtitle: "Armenian University",
-            desc: "After completing the JavaScript course and passing all the tests, the SoloLearn platform awarded me a certificate of course completion.",
-            rate: "100/100",
+            title: t('resume.education.2.title'),
+            subtitle: t('resume.education.2.subtitle'),
+            desc: t('resume.education.2.desc'),
+            rate: t('resume.education.2.rate'),
         },
     ];
 
     const data2 = [
         {
             id: 1,
-            title: "LearNova-Educational platform",
-            desc: "A modern e-learning platform built with React.js, Redux Toolkit, Tailwind CSS, and Framer Motion featuring both dark and light modes for better user experience. The backend is powered by Laravel, providing a secure REST API and authentication handled through Laravel Sanctum.",
+            title: t('projects.1.title'),
+            desc: t('projects.1.desc'),
             src: Learnova,
             link: "https://learnovaeducation.netlify.app",
             github: "https://github.com/Basharkatrib/E-learning-client",
@@ -63,8 +65,8 @@ function Resume() {
         },
         {
             id: 2,
-            title: "Restaurant",
-            desc: "I developed a restaurant web application using Next.js, featuring a smooth and user-friendly interface with subtle animations for an enhanced user experience.",
+            title: t('projects.2.title'),
+            desc: t('projects.2.desc'),
             src: restaurant,
             link: "https://restaurantbaskat.netlify.app",
             github: "https://github.com/Basharkatrib/My_Next",
@@ -72,59 +74,59 @@ function Resume() {
         },
         {
             id: 3,
-            title: "Flyza Airways",
-            desc: "Developed a flight booking web app using React.js, ReduxToolkit for state management, Strapi CMS for content handling, and Tailwind CSS for responsive design.",
+            title: t('projects.3.title'),
+            desc: t('projects.3.desc'),
             src: Flyza,
-            link: "https://aesthetic-paprenjak-4b8a9e.netlify.app",
+            link: "https://flyzaairways.netlify.app",
             github: "https://github.com/Basharkatrib/Flights_client",
             technologies: ["React", "Redux Toolkit", "Strapi CMS", "Tailwind CSS"]
         },
         {
             id: 4,
-            title: "Photo Land e-commerce",
-            desc: "Full Stack Camera e-store where ReactJS front-end and Strapi CMS back-end were used with Redux Toolkit state managenment.",
+            title: t('projects.4.title'),
+            desc: t('projects.4.desc'),
             src: photoland,
-            link: "https://stupendous-mermaid-f5d7eb.netlify.app",
+            link: "https://photola.netlify.app",
             github: "https://github.com/Basharkatrib/PhotoLand-ecommerce",
             technologies: ["React", "Strapi CMS", "Redux Toolkit", "CSS"]
         },
         {
             id: 5,
-            title: "Tikmol e-commerce",
-            desc: "Full Stack e-store where ReactJS front-end and Laravel back-end were used with Nova admin interface.",
+            title: t('projects.5.title'),
+            desc: t('projects.5.desc'),
             src: tikmol,
             github: "https://github.com/Basharkatrib/tikmol-front-addanim-v2",
             technologies: ["React", "Laravel", "Nova", "MySQL"]
         },
         {
             id: 6,
-            title: "Weather App",
-            desc: "A simple weather app built with React JS for the frontend, Tailwind CSS for styling, and RESTful API to fetch real-time weather data, offering users an interactive and responsive experience.",
+            title: t('projects.6.title'),
+            desc: t('projects.6.desc'),
             src: weather,
-            link: "https://illustrious-beignet-ae2bfe.netlify.app",
+            link: "https://appwether.netlify.app",
             github: "https://github.com/Basharkatrib/WeatherApp",
             technologies: ["React", "Tailwind CSS", "API", "JavaScript"]
         },
         {
             id: 7,
-            title: "Clothes e-commerce",
-            desc: "Full Stack e-store where ReactJS front-end and Strapi CMS Dashboard back-end and Tailwind Css.",
+            title: t('projects.7.title'),
+            desc: t('projects.7.desc'),
             src: ecomclothes,
             github: "https://github.com/Basharkatrib/ecom-wear",
             technologies: ["React", "Strapi CMS", "Tailwind CSS", "JavaScript"]
         },
         {
             id: 8,
-            title: "Educational platform",
-            desc: "An educational platform that allows you to choose courses, start watching videos, and comment on any video using Laravel..",
+            title: t('projects.8.title'),
+            desc: t('projects.8.desc'),
             src: courses,
             github: "https://github.com/Basharkatrib/Courses-t1",
             technologies: ["Laravel", "PHP", "MySQL", "Blade"]
         },
         {
             id: 9,
-            title: "Store management system",
-            desc: "A warehouse management system for selling products where you can add, delete, modify and search for a specific product using HTML CSS JavaScript.",
+            title: t('projects.9.title'),
+            desc: t('projects.9.desc'),
             src: prodstore,
             link: "https://basharkatrib.github.io/crud1/",
             github: "https://github.com/Basharkatrib/crud1",
@@ -137,7 +139,7 @@ function Resume() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-full py-20 bg-gradient-to-b from-zinc-900 to-black border-b border-white/10"
+            className="w-full py-20 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-black border-b border-white/10"
             id="Projects"
         >
             <div className="w-full px-3 sm:px-6">
@@ -148,28 +150,28 @@ function Resume() {
                         transition={{ delay: 0.2 }}
                         className="text-red-600 font-semibold"
                     >
-                        2+ YEARS OF EXPERIENCE
+                        {t('resume.experienceYears')}
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="text-4xl md:text-5xl font-bold text-white mt-2"
+                        className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mt-2"
                     >
-                        My Resume
+                        {t('resume.title')}
                     </motion.h2>
                 </div>
 
                 <div className="mt-12">
-                    <div className="bg-zinc-900/50 backdrop-blur-sm p-1 rounded-xl flex gap-2">
-                        {['Education', 'Projects'].map((tab, index) => (
+                    <div className="dark:bg-zinc-900/50 backdrop-blur-sm p-1 rounded-xl flex gap-2">
+                        {[t('resume.tab.education'), t('resume.tab.projects')].map((tab, index) => (
                             <button
                                 key={index}
                                 onClick={() => setActive(index + 1)}
                                 className={`flex-1 py-3 px-6 rounded-lg text-lg font-medium transition-all duration-300 ${
                                     active === index + 1
-                                        ? 'bg-red-600 text-white'
-                                        : 'text-gray-400 hover:text-white'
+                                        ? 'bg-red-600 text-white dark:text-zinc-900'
+                                        : 'dark:text-gray-400'
                                 }`}
                             >
                                 {tab}
@@ -193,14 +195,14 @@ function Resume() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.1 }}
-                                    className="group bg-gradient-to-b from-zinc-900/80 to-black/50 backdrop-blur-sm rounded-xl p-6 border border-zinc-800/50 hover:border-red-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/5"
+                                    className="group bg-gradient-to-b from-white/80 to-white/60 dark:from-zinc-900/80 dark:to-black/50 backdrop-blur-sm rounded-xl p-6 border border-zinc-200 dark:border-zinc-800/50 hover:border-red-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/5"
                                 >
                                     <div className="flex justify-between items-start">
                                         <div>
-                                            <h3 className="text-xl font-bold text-white group-hover:text-red-500 transition-colors duration-300">
+                                            <h3 className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-red-500 transition-colors duration-300">
                                                 {item.title}
                                             </h3>
-                                            <p className="text-gray-400 mt-2 group-hover:text-gray-300 transition-colors duration-300">
+                                            <p className="text-gray-700 dark:text-gray-400 mt-2 group-hover:text-gray-800 dark:group-hover:text-gray-300 transition-colors duration-300">
                                                 {item.subtitle}
                                             </p>
                                         </div>
@@ -208,7 +210,7 @@ function Resume() {
                                             {item.rate}
                                         </span>
                                     </div>
-                                    <p className="mt-6 text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                                    <p className="mt-6 text-gray-700 dark:text-gray-400 leading-relaxed group-hover:text-gray-800 dark:group-hover:text-gray-300 transition-colors duration-300">
                                         {item.desc}
                                     </p>
                                 </motion.div>
@@ -230,7 +232,7 @@ function Resume() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.1 }}
-                                    className="group bg-gradient-to-b from-zinc-900/80 to-black/50 backdrop-blur-sm rounded-xl overflow-hidden border border-zinc-800/50 hover:border-red-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/5"
+                                    className="group bg-gradient-to-b from-white/80 to-white/60 dark:from-zinc-900/80 dark:to-black/50 backdrop-blur-sm rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800/50 hover:border-red-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/5"
                                 >
                                     <div className="aspect-video overflow-hidden relative">
                                         <img
@@ -268,14 +270,14 @@ function Resume() {
                                             <h3 className="text-xl font-bold text-white group-hover:text-red-500 transition-colors duration-300">
                                                 {project.title}
                                             </h3>
-                                            <div className="flex gap-2">
+                                                <div className="flex gap-2">
                                                 {project.link && (
                                                     <a
                                                         href={project.link}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="p-2 bg-zinc-800 rounded-full text-gray-400 hover:text-red-500 hover:bg-zinc-700 transition-all duration-300"
-                                                        title="View Live Demo"
+                                                        className="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-gray-400 hover:text-red-500 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-300"
+                                                        title={t('projects.viewDemo')}
                                                     >
                                                         <FaGlobe className="w-5 h-5" />
                                                     </a>
@@ -285,15 +287,15 @@ function Resume() {
                                                         href={project.github}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="p-2 bg-zinc-800 rounded-full text-gray-400 hover:text-white hover:bg-zinc-700 transition-all duration-300"
-                                                        title="View Source Code"
+                                                        className="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-gray-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all duration-300"
+                                                        title={t('projects.viewSource')}
                                                     >
                                                         <FaGithub className="w-5 h-5" />
                                                     </a>
                                                 )}
                                             </div>
                                         </div>
-                                        <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                                        <p className="text-gray-700 dark:text-gray-400 leading-relaxed group-hover:text-gray-800 dark:group-hover:text-gray-300 transition-colors duration-300">
                                             {project.desc}
                                         </p>
                                     </div>

@@ -1,0 +1,253 @@
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+
+const I18nContext = createContext({
+  lang: 'en',
+  dir: 'ltr',
+  t: (key) => key,
+  setLang: () => {}
+});
+
+const translations = {
+  en: {
+    'nav.home': 'Home',
+    'nav.features': 'Features',
+    'nav.projects': 'Projects',
+    'nav.experience': 'Experience',
+    'nav.contact': 'Contact',
+
+    'hero.hi': "Hi, I'm",
+    'hero.roles': ['FULL STACK DEVELOPER !', 'REACT JS DEVELOPER !', 'LARAVEL DEVELOPER !'],
+    'hero.about': 'I am a passionate Full Stack Developer with 2+ years of experience in building modern web applications. I specialize in React.js for creating dynamic frontend interfaces with Redux Toolkit for state management, and Laravel for robust backend development. My expertise includes building responsive e-commerce platforms, RESTful APIs, and full-stack solutions using modern technologies like Tailwind CSS, Strapi CMS, and various JavaScript frameworks.',
+    'hero.contact': 'Contact Me',
+    'hero.projects': 'View Projects',
+    'hero.download': 'Download CV',
+    'hero.findMeIn': 'Find me in',
+
+    'features.title': 'My Features',
+    'features.subtitle': 'Key skills and capabilities that define my professional profile',
+    'features.cards.1.title': 'Full Stack Developer',
+    'features.cards.1.subtitle': '2+ years of experience in developing full-stack web applications using React.js for frontend and Laravel for backend development.',
+    'features.cards.2.title': 'Problem Solving',
+    'features.cards.2.subtitle': 'Ability to solve software problems, find the best solutions and implement them.',
+    'features.cards.3.title': 'JavaScript & PHP Expert',
+    'features.cards.3.subtitle': 'Advanced proficiency in JavaScript (ES6+), React.js ecosystem, and PHP with Laravel framework for building scalable web applications.',
+    'features.cards.4.title': 'React.js & Laravel Expert',
+    'features.cards.4.subtitle': 'Expert-level proficiency in React.js with hooks, context, Redux Toolkit, and Laravel with Eloquent ORM, Blade templates, and API development.',
+    'features.cards.5.title': 'Ability To Collaborate',
+    'features.cards.5.subtitle': 'Ability to cooperate with the team, add knowledge, accept suggestions, and withstand work pressure.',
+    'features.cards.6.title': 'Continuous Development',
+    'features.cards.6.subtitle': 'The ability to continuously develop, add skills and learn modern technologies on a permanent and continuous basis.',
+
+    'resume.experienceYears': '2+ YEARS OF EXPERIENCE',
+    'resume.title': 'My Resume',
+    'resume.tab.education': 'Education',
+    'resume.tab.projects': 'Projects',
+    'resume.education.1.title': "Bachelor's degree in information technology",
+    'resume.education.1.subtitle': 'University of Lattakia in Syria',
+    'resume.education.1.desc': 'My continuous learning at university and my perseverance in studying gave me the opportunity to be able to work as a team and develop.',
+    'resume.education.1.rate': '85/100',
+    'resume.education.2.title': 'JavaScript Course Completion Certificate',
+    'resume.education.2.subtitle': 'Armenian University',
+    'resume.education.2.desc': 'After completing the JavaScript course and passing all the tests, the SoloLearn platform awarded me a certificate of course completion.',
+    'resume.education.2.rate': '100/100',
+
+    'projects.1.title': 'LearNova-Educational platform',
+    'projects.1.desc': 'A modern e-learning platform built with React.js, Redux Toolkit, Tailwind CSS, and Framer Motion featuring both dark and light modes. Backend powered by Laravel with Sanctum auth.',
+    'projects.2.title': 'Restaurant',
+    'projects.2.desc': 'A restaurant web application using Next.js with a smooth UI and subtle animations for better UX.',
+    'projects.3.title': 'Flyza Airways',
+    'projects.3.desc': 'A flight booking web app using React.js, Redux Toolkit, Strapi CMS, and Tailwind CSS.',
+    'projects.4.title': 'Photo Land e-commerce',
+    'projects.4.desc': 'Full Stack camera store: React front-end with Strapi CMS backend and Redux Toolkit.',
+    'projects.5.title': 'Tikmol e-commerce',
+    'projects.5.desc': 'Full Stack e-store with React front-end and Laravel backend using Nova admin.',
+    'projects.6.title': 'Weather App',
+    'projects.6.desc': 'Simple weather app built with React JS, Tailwind CSS, and a REST API for real-time weather.',
+    'projects.7.title': 'Clothes e-commerce',
+    'projects.7.desc': 'Full Stack clothing e-store using React, Strapi Dashboard, and Tailwind CSS.',
+    'projects.8.title': 'Educational platform',
+    'projects.8.desc': 'Educational platform to choose courses, watch videos, and comment using Laravel.',
+    'projects.9.title': 'Store management system',
+    'projects.9.desc': 'Warehouse management system to add, delete, edit, and search products using HTML/CSS/JS.',
+    'projects.viewDemo': 'View Live Demo',
+    'projects.viewSource': 'View Source Code',
+
+    'additional.badge': 'MY JOURNEY',
+    'additional.title': 'Additional Skills & Experience',
+    'additional.items.1.title': 'Full Stack Development Training at AraTech Company',
+    'additional.items.1.subtitle': 'Five-month intensive training program',
+    'additional.items.1.result': '100%',
+    'additional.items.1.desc': 'Comprehensive Full Stack training covering React.js, Laravel, database design, and modern practices with hands-on projects.',
+    'additional.items.2.title': 'Advanced Web Development Course at Techno Home',
+    'additional.items.2.subtitle': 'Four months specialized course',
+    'additional.items.2.result': '95%',
+    'additional.items.2.desc': 'Focused on advanced web techniques, ASP.NET Core, backend architecture, and modern methodologies.',
+    'additional.items.3.title': 'Professional Team Collaboration',
+    'additional.items.3.subtitle': 'Remote & on-site development projects',
+    'additional.items.3.result': '2+ Years',
+    'additional.items.3.desc': 'Collaborated with teams to build web apps, e-commerce platforms, and RESTful APIs using React.js and Laravel.',
+    'additional.items.4.title': 'Continuous Learning & Skill Development',
+    'additional.items.4.subtitle': 'Self-driven & technology-focused',
+    'additional.items.4.result': '100%',
+    'additional.items.4.desc': 'Committed to staying current with latest technologies and best practices in React.js and Laravel.',
+
+    'contact.badge': 'GET IN TOUCH',
+    'contact.title': 'Contact With Me',
+    'contact.role': 'Full Stack Developer | React.js & Laravel Expert',
+    'contact.bio': "I am a passionate Full Stack Developer with 2+ years of experience in React.js and Laravel. I specialize in building modern web applications, e-commerce platforms, and RESTful APIs. I'm always excited to discuss new opportunities and projects.",
+    'contact.phoneLabel': 'Phone:',
+    'contact.emailLabel': 'Email:',
+    'contact.name': 'YOUR NAME',
+    'contact.phone': 'PHONE NUMBER',
+    'contact.email': 'EMAIL',
+    'contact.subject': 'SUBJECT',
+    'contact.message': 'MESSAGE',
+    'contact.send': 'Send Message',
+    'contact.placeholder.name': 'John Doe',
+    'contact.placeholder.phone': '+1 (555) 000-0000',
+    'contact.placeholder.email': 'example@domain.com',
+    'contact.placeholder.subject': 'Project Discussion',
+    'contact.placeholder.message': 'Your message here...',
+
+    'footer.quickLinks': 'Quick Links',
+    'footer.getInTouch': 'Get In Touch',
+    'footer.builtWith': 'Built with ❤️ using React.js & Tailwind CSS',
+    'footer.bio': 'Full Stack Developer specializing in React.js and Laravel. Passionate about creating modern, responsive web applications and delivering exceptional user experiences.',
+    'footer.rights': 'All rights reserved.',
+  },
+  ar: {
+    'nav.home': 'الرئيسية',
+    'nav.features': 'المميزات',
+    'nav.projects': 'المشاريع',
+    'nav.experience': 'الخبرات',
+    'nav.contact': 'التواصل',
+
+    'hero.hi': 'مرحباً، أنا',
+    'hero.roles': ['مطوّر فل ستاك', 'مطوّر React JS', 'مطوّر Laravel'],
+    'hero.about': 'أنا مطوّر فل ستاك شغوف ولدي خبرة تتجاوز السنتين في بناء تطبيقات الويب الحديثة. أتخصص في React.js لبناء واجهات أمامية ديناميكية مع Redux Toolkit لإدارة الحالة، وLaravel لتطوير خلفيات قوية. لدي خبرة في إنشاء متاجر إلكترونية متجاوبة وواجهات RESTful وحلول متكاملة باستخدام تقنيات حديثة مثل Tailwind CSS وStrapi وغيرها.',
+    'hero.contact': 'تواصل معي',
+    'hero.projects': 'عرض المشاريع',
+    'hero.download': 'تحميل السيرة الذاتية',
+    'hero.findMeIn': 'تجدني على',
+
+    'features.title': 'مميزاتي',
+    'features.subtitle': 'أهم المهارات والقدرات التي تميّز ملفي المهني',
+    'features.cards.1.title': 'مطوّر فل ستاك',
+    'features.cards.1.subtitle': 'أكثر من سنتين خبرة في تطوير تطبيقات ويب متكاملة باستخدام React.js للواجهة الأمامية وLaravel للخلفية.',
+    'features.cards.2.title': 'حل المشكلات',
+    'features.cards.2.subtitle': 'القدرة على تحليل المشكلات البرمجية وإيجاد أفضل الحلول وتنفيذها.',
+    'features.cards.3.title': 'خبير JavaScript وPHP',
+    'features.cards.3.subtitle': 'إتقان متقدم لـ JavaScript (ES6+) ونظام React.js وPHP مع Laravel لبناء تطبيقات قابلة للتوسع.',
+    'features.cards.4.title': 'خبير React.js وLaravel',
+    'features.cards.4.subtitle': 'مستوى خبير في React.js مع Hooks وContext وRedux Toolkit، وLaravel مع Eloquent وBlade وتطوير الـ APIs.',
+    'features.cards.5.title': 'القدرة على التعاون',
+    'features.cards.5.subtitle': 'القدرة على العمل ضمن فريق، وإضافة المعرفة، وتقبّل الاقتراحات، وتحمل ضغط العمل.',
+    'features.cards.6.title': 'تطوير مستمر',
+    'features.cards.6.subtitle': 'القدرة على التطوير المستمر وإضافة المهارات وتعلم التقنيات الحديثة بشكل دائم.',
+
+    'resume.experienceYears': 'أكثر من سنتين خبرة',
+    'resume.title': 'سيرتي الذاتية',
+    'resume.tab.education': 'التعليم',
+    'resume.tab.projects': 'المشاريع',
+    'resume.education.1.title': 'بكالوريوس تقانة معلومات',
+    'resume.education.1.subtitle': 'جامعة اللاذقية في سوريا',
+    'resume.education.1.desc': 'التعلم المستمر والمثابرة في الدراسة منحتني فرصة العمل الجماعي والتطور.',
+    'resume.education.1.rate': '85/100',
+    'resume.education.2.title': 'شهادة إتمام دورة JavaScript',
+    'resume.education.2.subtitle': 'الجامعة الأرمنية',
+    'resume.education.2.desc': 'بعد إنهاء دورة JavaScript واجتياز جميع الاختبارات حصلت على شهادة إتمام من منصة SoloLearn.',
+    'resume.education.2.rate': '100/100',
+
+    'projects.1.title': 'LearNova - منصّة تعليمية',
+    'projects.1.desc': 'منصّة تعليم حديثة بواجهة React.js وRedux Toolkit وTailwind وFramer Motion مع الوضعين الفاتح/الداكن. الخلفية Laravel مع توثيق Sanctum.',
+    'projects.2.title': 'مطعم',
+    'projects.2.desc': 'تطبيق ويب لمطعم باستخدام Next.js بواجهة سلسة وحركات خفيفة لتحسين التجربة.',
+    'projects.3.title': 'Flyza Airways',
+    'projects.3.desc': 'تطبيق حجز رحلات باستخدام React.js وRedux Toolkit وStrapi وTailwind.',
+    'projects.4.title': 'Photo Land متجر كاميرات',
+    'projects.4.desc': 'متجر كاميرات متكامل: واجهة React وخلفية Strapi مع Redux Toolkit.',
+    'projects.5.title': 'Tikmol متجر إلكتروني',
+    'projects.5.desc': 'متجر متكامل بواجهة React وخلفية Laravel مع لوحة Nova.',
+    'projects.6.title': 'تطبيق الطقس',
+    'projects.6.desc': 'تطبيق طقس بسيط بـ React وTailwind وواجهة REST لبيانات الطقس اللحظية.',
+    'projects.7.title': 'متجر الملابس',
+    'projects.7.desc': 'متجر ملابس متكامل باستخدام React وStrapi Dashboard وTailwind.',
+    'projects.8.title': 'منصّة تعليمية (Laravel)',
+    'projects.8.desc': 'منصّة تعليم تتيح اختيار الدورات ومشاهدة الفيديوهات والتعليق باستخدام Laravel.',
+    'projects.9.title': 'نظام إدارة المخزن',
+    'projects.9.desc': 'نظام لإدارة المنتجات (إضافة/حذف/تعديل/بحث) باستخدام HTML وCSS وJavaScript.',
+    'projects.viewDemo': 'عرض النسخة الحية',
+    'projects.viewSource': 'عرض الكود المصدري',
+
+    'additional.badge': 'رحلتي',
+    'additional.title': 'مهارات إضافية وخبرات',
+    'additional.items.1.title': 'تدريب فل ستاك في شركة AraTech',
+    'additional.items.1.subtitle': 'برنامج مكثف لمدة خمسة أشهر',
+    'additional.items.1.result': '100%',
+    'additional.items.1.desc': 'تدريب شامل على React.js وLaravel وتصميم قواعد البيانات وأحدث الممارسات مع مشاريع تطبيقية.',
+    'additional.items.2.title': 'دورة تطوير ويب متقدم في Techno Home',
+    'additional.items.2.subtitle': 'دورة تخصصية لمدة أربعة أشهر',
+    'additional.items.2.result': '95%',
+    'additional.items.2.desc': 'تركيز على تقنيات الويب المتقدمة وASP.NET Core وبنية الخلفية والمنهجيات الحديثة.',
+    'additional.items.3.title': 'تعاون احترافي ضمن فرق',
+    'additional.items.3.subtitle': 'مشاريع عن بُعد وضمن المقر',
+    'additional.items.3.result': '2+ سنوات',
+    'additional.items.3.desc': 'التعاون لبناء تطبيقات ويب ومتاجر إلكترونية وواجهات REST باستخدام React.js وLaravel.',
+    'additional.items.4.title': 'تعلم مستمر وتطوير مهارات',
+    'additional.items.4.subtitle': 'تعلم ذاتي وتركيز تقني',
+    'additional.items.4.result': '100%',
+    'additional.items.4.desc': 'الالتزام بمواكبة أحدث التقنيات وأفضل الممارسات في React.js وLaravel.',
+
+    'contact.badge': 'تواصل معي',
+    'contact.title': 'تواصل معي',
+    'contact.role': 'مطوّر فل ستاك | خبير React.js وLaravel',
+    'contact.bio': 'أنا مطوّر فل ستاك بخبرة تتجاوز السنتين في React.js وLaravel. أمتلك خبرة في بناء تطبيقات الويب الحديثة والمتاجر الإلكترونية وواجهات REST. يسعدني دائماً مناقشة الفرص والمشاريع الجديدة.',
+    'contact.phoneLabel': 'الهاتف:',
+    'contact.emailLabel': 'البريد:',
+    'contact.name': 'الاسم',
+    'contact.phone': 'رقم الهاتف',
+    'contact.email': 'البريد الإلكتروني',
+    'contact.subject': 'الموضوع',
+    'contact.message': 'الرسالة',
+    'contact.send': 'إرسال',
+    'contact.placeholder.name': 'الاسم الكامل',
+    'contact.placeholder.phone': '+963 9xx xxx xxx',
+    'contact.placeholder.email': 'example@domain.com',
+    'contact.placeholder.subject': 'موضوع الرسالة',
+    'contact.placeholder.message': 'اكتب رسالتك هنا...',
+
+    'footer.quickLinks': 'روابط سريعة',
+    'footer.getInTouch': 'تواصل معنا',
+    'footer.builtWith': 'تم البناء ❤️ باستخدام React.js وTailwind CSS',
+    'footer.bio': 'مطوّر فل ستاك متخصص في React.js وLaravel. شغوف بإنشاء تطبيقات ويب حديثة ومتجاوبة وتقديم تجارب استخدام مميزة.',
+    'footer.rights': 'جميع الحقوق محفوظة.',
+  }
+};
+
+export function I18nProvider({ children }) {
+  const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'en');
+
+  useEffect(() => {
+    const dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', dir);
+    localStorage.setItem('lang', lang);
+  }, [lang]);
+
+  const value = useMemo(() => ({
+    lang,
+    dir: lang === 'ar' ? 'rtl' : 'ltr',
+    setLang,
+    t: (key) => (translations[lang] && translations[lang][key]) || key,
+  }), [lang]);
+
+  return (
+    <I18nContext.Provider value={value}>{children}</I18nContext.Provider>
+  );
+}
+
+export function useI18n() {
+  return useContext(I18nContext);
+}
+
+

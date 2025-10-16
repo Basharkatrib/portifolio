@@ -11,13 +11,13 @@ const ResumeCard = ({ title, subTitle, result, des }) => {
     >
       <div className="relative flex items-center">
         <div className="flex-1">
-          <div className="h-full bg-zinc-900/30 backdrop-blur-sm rounded-xl p-6 border border-zinc-800/50 hover:border-red-500/20 transition-all duration-300">
+          <div className="h-full bg-white/60 dark:bg-zinc-900/30 backdrop-blur-sm rounded-xl p-6 border border-zinc-200 dark:border-zinc-800/50 hover:border-red-500/20 transition-all duration-300">
             <div className="flex flex-col lg:flex-row justify-between gap-4">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-red-500 transition-colors duration-300">
+                <h3 className="text-xl md:text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-red-500 transition-colors duration-300">
                   {title}
                 </h3>
-                <p className="text-gray-400 mt-2 group-hover:text-gray-300 transition-colors duration-300">
+                <p className="text-gray-600 dark:text-gray-400 mt-2 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300">
                   {subTitle}
                 </p>
               </div>
@@ -27,7 +27,7 @@ const ResumeCard = ({ title, subTitle, result, des }) => {
                 </span>
               </div>
             </div>
-            <p className="mt-4 text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+            <p className="mt-4 text-gray-700 dark:text-gray-400 leading-relaxed group-hover:text-gray-800 dark:group-hover:text-gray-300 transition-colors duration-300">
               {des}
             </p>
           </div>

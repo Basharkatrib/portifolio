@@ -4,36 +4,83 @@ import { motion } from "framer-motion";
 import myphoto from '../../assets/Screenshot_2025-05-06_135148-removebg-preview.png';
 import '../../index.css';
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
+import { useI18n } from '../../i18n.jsx';
 
 
 function Hero() {
+    const { t, lang } = useI18n();
     return (
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className=" px-3 pt-24 py-3 md:px-6 md:pt-32 md:pb-9 border-b-2 border-white/10 flex w-full justify-center items-start bg-gradient-to-b from-zinc-900 to-black"
+            className=" relative px-3 pt-24 py-3 md:px-6 md:pt-32 md:pb-9 border-b-2 border-white/10 flex w-full justify-center items-start bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-black"
             id="Home"
         >
+            {/* Bubble background layer */}
+            <div className="bubble-bg">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
             <div className="w-full flex h-full flex-col lg:flex-row lg:justify-between max-w-7xl mx-auto">
                 <motion.div 
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
-                    className="h-full flex flex-col basis-1/2 gap-8 justify-center items-stretch"
+                    className="relative z-10 h-full flex flex-col basis-1/2 gap-8 justify-center items-stretch"
                 >
-                    <div className="text-3xl md:text-5xl font-bold">
+                    <div className="text-3xl md:text-5xl font-bold text-zinc-900 dark:text-white">
                         <motion.span
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.4 }}
                         >
-                            Hi, I'm <span className="text-red-600 uppercase bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent">bashar katrib</span>
+                            {t('hero.hi')} <span className="text-red-600 uppercase bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent">bashar katrib</span>
                         </motion.span>
                         <br />
                         <span className="text-2xl md:text-4xl">
                             <Typewriter
-                                words={['FULL STACK DEVELOPER !', 'REACT JS DEVELOPER !', 'LARAVEL DEVELOPER !']}
+                                words={t('hero.roles')}
                                 loop={true}
                                 cursor
                                 cursorStyle="_"
@@ -48,9 +95,9 @@ function Hero() {
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.6 }}
-                        className="text-gray-300 text-lg md:text-xl leading-relaxed"
+                        className="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed"
                     >
-                       I am a passionate Full Stack Developer with 2+ years of experience in building modern web applications. I specialize in React.js for creating dynamic frontend interfaces with Redux Toolkit for state management, and Laravel for robust backend development. My expertise includes building responsive e-commerce platforms, RESTful APIs, and full-stack solutions using modern technologies like Tailwind CSS, Strapi CMS, and various JavaScript frameworks.
+                       {t('hero.about')}
                     </motion.div>
 
                     <motion.div 
@@ -69,7 +116,7 @@ function Hero() {
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            Contact Me
+                            {t('hero.contact')}
                         </Link>
                         <Link
                                         to='Projects'
@@ -80,7 +127,7 @@ function Hero() {
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                             </svg>
-                            View Projects
+                            {t('hero.projects')}
                         </Link>
                         <a
                             href="/Bashar George Katrib - Full-Stack Developer.pdf"
@@ -90,7 +137,7 @@ function Hero() {
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
-                            Download CV
+                            {t('hero.download')}
                         </a>
                     </motion.div>
 
@@ -100,7 +147,7 @@ function Hero() {
                         transition={{ delay: 1 }}
                         className="flex flex-col gap-4"
                     >
-                        <div className="text-xl font-semibold">Find me in</div>
+                        <div className="text-xl font-semibold">{t('hero.findMeIn')}</div>
                         <motion.div 
                             animate={{ y: [0, -5, 0] }} 
                             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }} 
@@ -136,7 +183,7 @@ function Hero() {
                     initial={{ x: 100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
-                    className="justify-center items-center basis-1/2 relative hidden lg:flex"
+                    className="relative z-10 justify-center items-center basis-1/2 relative hidden lg:flex"
                 >
                     <div className="absolute w-full flex justify-center mt-4 md:mt-0 md:w-4/6 bg-gradient-to-b from-zinc-800 to-zinc-900 h-4/5 shadow-2xl rounded-2xl overflow-hidden backdrop-blur-sm">
                         <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 to-transparent"></div>

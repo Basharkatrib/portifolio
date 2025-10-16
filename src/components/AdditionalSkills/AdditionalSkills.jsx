@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import ResumeCard from "../ResumeCard/ResumeCard";
+import { useI18n } from '../../i18n.jsx';
 
 function AdditionalSkills() {
+    const { t } = useI18n();
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -29,18 +31,18 @@ function AdditionalSkills() {
             whileInView="visible"
             viewport={{ once: true }}
             id="Experience"
-            className="w-full py-20 bg-gradient-to-b from-black via-zinc-900 to-black border-b border-white/10"
+            className="w-full py-20 overflow-x-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 dark:from-black dark:via-zinc-900 dark:to-black border-b border-white/10"
         >
             <div className="px-3 sm:px-6">
                 <motion.div
                     variants={itemVariants}
                     className="text-center mb-16"
                 >
-                    <span className="inline-block px-4 py-1 bg-red-600/10 text-red-500 rounded-full text-sm font-medium tracking-wide">
-                        MY JOURNEY
+                    <span className="inline-block px-4 py-1 bg-red-600/10 text-red-600 dark:text-red-500 rounded-full text-sm font-medium tracking-wide">
+                        {t('additional.badge')}
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mt-4">
-                        Additional Skills & Experience
+                    <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-zinc-900 to-gray-500 dark:from-white dark:to-gray-400 bg-clip-text text-transparent mt-4">
+                        {t('additional.title')}
                     </h2>
                 </motion.div>
 
@@ -48,30 +50,30 @@ function AdditionalSkills() {
                     {[
                         [
                             {
-                                title: "Full Stack Development Training at AraTech Company",
-                                subTitle: "Five-month intensive training program",
-                                result: "100%",
-                                des: "Comprehensive Full Stack training covering React.js, Laravel, database design, and modern web development practices with hands-on project experience."
+                                title: t('additional.items.1.title'),
+                                subTitle: t('additional.items.1.subtitle'),
+                                result: t('additional.items.1.result'),
+                                des: t('additional.items.1.desc')
                             },
                             {
-                                title: "Advanced Web Development Course at Techno Home",
-                                subTitle: "Four months specialized course",
-                                result: "95%",
-                                des: "Focused on advanced web development techniques, ASP.NET Core, backend architecture, and modern development methodologies."
+                                title: t('additional.items.2.title'),
+                                subTitle: t('additional.items.2.subtitle'),
+                                result: t('additional.items.2.result'),
+                                des: t('additional.items.2.desc')
                             }
                         ],
                         [
                             {
-                                title: "Professional Team Collaboration",
-                                subTitle: "Remote & on-site development projects",
-                                result: "2+ Years",
-                                des: "Successfully collaborated with development teams to build dynamic web applications, e-commerce platforms, and RESTful APIs using React.js and Laravel."
+                                title: t('additional.items.3.title'),
+                                subTitle: t('additional.items.3.subtitle'),
+                                result: t('additional.items.3.result'),
+                                des: t('additional.items.3.desc')
                             },
                             {
-                                title: "Continuous Learning & Skill Development",
-                                subTitle: "Self-driven & technology-focused",
-                                result: "100%",
-                                des: "Committed to staying current with the latest technologies, frameworks, and best practices in web development, particularly in React.js ecosystem and Laravel framework."
+                                title: t('additional.items.4.title'),
+                                subTitle: t('additional.items.4.subtitle'),
+                                result: t('additional.items.4.result'),
+                                des: t('additional.items.4.desc')
                             }
                         ]
                     ].map((column, columnIndex) => (
