@@ -185,7 +185,7 @@ function Hero() {
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="relative z-10 justify-center items-center basis-1/2 relative hidden lg:flex"
                 >
-                    <div className="absolute w-full flex justify-center mt-4 md:mt-0 md:w-4/6 bg-gradient-to-b from-zinc-800 to-zinc-900 h-4/5 shadow-2xl rounded-2xl overflow-hidden backdrop-blur-sm">
+                    <div className="absolute w-full flex justify-center mt-4 md:mt-0 md:w-4/6 dark:bg-gradient-to-b from-zinc-800 to-zinc-900 h-4/5 shadow-2xl rounded-2xl overflow-hidden backdrop-blur-sm">
                         <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 to-transparent"></div>
                     </div>
                     <motion.img 
@@ -200,7 +200,7 @@ function Hero() {
 
                 {/* Mobile version */}
                 <div className="flex justify-center items-center basis-1/2 lg:hidden">
-                    <div className="w-full flex justify-center mt-4 md:mt-0 md:w-full bg-zinc-900 h-[480px] top-2 left-1/3 shadow-2xl rounded-lg overflow-hidden">
+                    <div className="w-full flex justify-center mt-4 md:mt-0 md:w-full dark:bg-zinc-900 h-[480px] top-2 left-1/3 shadow-2xl rounded-lg overflow-hidden">
                         <img className="h-full object-fill max-h-full" src={myphoto} />
                     </div>
                 </div>

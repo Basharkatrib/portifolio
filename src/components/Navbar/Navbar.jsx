@@ -137,13 +137,21 @@ function Navbar() {
                         <div className="flex items-center gap-2">
                             <button
                                 onClick={toggleTheme}
-                                className="block border-0 h-10 bg-zinc-800 text-white rounded-md px-3 hover:bg-zinc-700 lg:hidden"
+                                className="block border-0 h-10 dark:bg-zinc-800 dark:text-white rounded-md px-3 lg:hidden"
                                 type="button"
                                 aria-label="Toggle theme">
                                 {theme === 'dark' ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
                             </button>
                             <button
-                                className="block border-0 h-10 bg-black rounded-md px-2  hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+                                onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
+                                className="block border-0 h-10 bg-zinc-200 text-zinc-800 dark:bg-zinc-700 dark:text-white rounded-md px-3 hover:bg-zinc-300 dark:hover:bg-zinc-600 lg:hidden"
+                                type="button"
+                                aria-label="Toggle language"
+                            >
+                                {lang === 'ar' ? 'EN' : 'AR'}
+                            </button>
+                            <button
+                                className="block border-0 h-10 dark:bg-black rounded-md px-2  hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
                                 type="button"
                                 data-twe-collapse-init
                                 data-twe-target="#navbarSupportedContent8"
