@@ -14,7 +14,7 @@ function Footer() {
     return (
         <>
             <footer className="bg-gradient-to-b from-zinc-100 to-white dark:from-zinc-900 dark:to-black border-t border-white/10">
-                <div className="max-w-7xl mx-auto px-3 sm:px-6 py-12">
+                <div className="px-3 sm:px-6 py-12">
                     <div className="grid md:grid-cols-4 gap-8">
                         {/* Logo & Description */}
                         <motion.div 

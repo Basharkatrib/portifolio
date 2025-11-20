@@ -61,7 +61,7 @@ function Features() {
             className="w-full px-4 md:px-8 py-16 md:py-24 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-black"
             id="Features"
         >
-            <div className="max-w-7xl mx-auto">
+            <div className="">
                 <motion.div 
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
