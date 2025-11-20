@@ -73,7 +73,7 @@ function Hero() {
                         transition={{ delay: 0.4, duration: 0.6 }}
                         className="relative flex justify-center items-center order-1 lg:order-2 mb-6 lg:mb-0"
                     >
-                        <div className="relative w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] md:w-[400px] md:h-[400px]">
+                        <div className="relative w-[320px] h-[320px] sm:w-[320px] sm:h-[320px] md:w-[400px] md:h-[400px]">
                             {/* Glowing Circle */}
                             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/30 to-blue-500/30 dark:from-cyan-500/20 dark:to-blue-600/20 blur-3xl"></div>
                             <div className="absolute inset-4 rounded-full border-2 border-cyan-500/50 dark:border-cyan-500/30"></div>
@@ -84,7 +84,7 @@ function Hero() {
                                 <img
                                     src={myphoto}
                                     alt="Bashar Katrib"
-                                    className="w-full h-52 md:h-72 object-contain rounded-full"
+                                    className="w-full h-56 md:h-72 object-contain rounded-full"
                                 />
                             </div>
                         </div>
