@@ -11,12 +11,12 @@ function Contact() {
         {
             icon: <FaPhone className="w-5 h-5" />,
             label: "Phone",
-            value: "+963 963 996 833"
+            value: "+963 937662759"
         },
         {
             icon: <FaMapMarkerAlt className="w-5 h-5" />,
             label: "Location",
-            value: "Damascus, Syria"
+            value: "Latakia, Syria"
         }
     ];
 

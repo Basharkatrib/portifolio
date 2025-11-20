@@ -69,9 +69,6 @@ function Navbar() {
                                 duration={500}
                                 className="flex items-center gap-2 cursor-pointer"
                             >
-                                <div className="w-12 h-12 overflow-hidden">
-                                    <img className="w-12 h-12 rounded-full transition duration-300 hover:scale-110" src={logo} />
-                                </div>
                                 <div className="font-bold text-2xl text-cyan-500 dark:text-cyan-400">
                                     Bashar Katrib
                                 </div>
