@@ -1,31 +1,24 @@
-import '../../index.css';
-import { useI18n } from '../../i18n.jsx';
-import ecomimage from '../../assets/R.jpeg';
 import { motion } from "framer-motion";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
-import myphoto from '../../assets/Screenshot_2025-05-06_135148-removebg-preview.png';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 
 function Contact() {
-    const { t, lang } = useI18n();
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-                staggerChildren: 0.1
-            }
+    const contactInfo = [
+        {
+            icon: <FaEnvelope className="w-5 h-5" />,
+            label: "Email",
+            value: "bashar2003katrib@gmail.com"
+        },
+        {
+            icon: <FaPhone className="w-5 h-5" />,
+            label: "Phone",
+            value: "+963 963 996 833"
+        },
+        {
+            icon: <FaMapMarkerAlt className="w-5 h-5" />,
+            label: "Location",
+            value: "Damascus, Syria"
         }
-    };
-
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: { duration: 0.5 }
-        }
-    };
+    ];
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -33,160 +26,115 @@ function Contact() {
         const formData = new FormData(form);
         const name = formData.get('name') || '';
         const email = formData.get('email') || '';
-        const phone = formData.get('phone') || '';
-        const subject = formData.get('subject') || 'New message from portfolio contact form';
         const message = formData.get('message') || '';
 
-        const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`;
-        const mailto = `mailto:bashar2003katrib@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+        const mailto = `mailto:bashar2003katrib@gmail.com?subject=Portfolio Contact&body=${encodeURIComponent(body)}`;
         window.location.href = mailto;
         form.reset();
     };
 
     return (
-        <motion.section
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            id="Contact"
-            className="w-full py-20 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-black"
-        >
-            <div className="px-3 sm:px-6">
-                <motion.div variants={itemVariants} className="text-center mb-16">
-                    <span className="inline-block px-4 py-1.5 bg-red-600/10 text-red-600 dark:text-red-500 rounded-full text-sm font-semibold mb-4">
-                        {t('contact.badge')}
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-zinc-900 to-gray-500 dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
-                        {t('contact.title')}
+        <section className="py-20 px-6 bg-white dark:bg-[#0c1222] transition-colors duration-300" id="Contact">
+            <div className="max-w-7xl mx-auto">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                        <span className="text-gray-900 dark:text-white">Get In </span>
+                        <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                            Touch
+                        </span>
                     </h2>
+                    <p className="text-gray-900 dark:text-gray-400 text-lg max-w-3xl mx-auto">
+                        Need a bilingual React/Laravel engineer for your next launch? Tell me about the problem and I'll reply within a day with the best way to collaborate.
+                    </p>
                 </motion.div>
 
+                {/* Content Grid */}
                 <div className="grid lg:grid-cols-3 gap-8">
+                    {/* Left: Contact Info */}
                     <motion.div
-                        variants={itemVariants}
-                        className="lg:col-span-1 dark:bg-zinc-900/30 backdrop-blur-sm rounded-xl p-6 border border-zinc-800/50 hover:border-red-500/20 transition-all duration-300"
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="space-y-6"
                     >
-                        <div className="aspect-square overflow-hidden rounded-xl mb-6">
-                            <motion.img
-                                initial={{ scale: 0.8, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                transition={{ duration: 0.5 }}
-                                className="w-full h-full object-contain"
-                                src={myphoto}
-                                alt="Profile"
-                            />
-                        </div>
-                        <h3 className="text-2xl font-bold dark:text-white text-zinc-900 mb-2">BASHAR KATRIB</h3>
-                        <p className="text-red-500 font-medium mb-4">{t('contact.role')}</p>
-                        <p className="dark:text-gray-400 text-zinc-900 mb-6">
-                            {t('contact.bio')}
-                        </p>
-                        <div className="space-y-3 mb-8">
-                            <p className="dark:text-gray-400 text-zinc-900">
-                                <span className="font-semibold dark:text-white text-zinc-900">{t('contact.phoneLabel')}</span> +963 937662759
-                            </p>
-                            <p className="dark:text-gray-400 text-zinc-900">
-                                <span className="font-semibold dark:text-white text-zinc-900">{t('contact.emailLabel')}</span> bashar2003katrib@gmail.com
-                            </p>
-                        </div>
-                        <div className="flex gap-4">
-                            <a
-                                href="https://www.facebook.com/share/151MJb9EmD/"
-                                className="p-3 bg-blue-600/10 text-blue-500 rounded-lg hover:bg-blue-600/20 transition-all duration-300"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                        {contactInfo.map((info, index) => (
+                            <div
+                                key={index}
+                                className="p-6 bg-white dark:bg-slate-900/50 border border-gray-200 dark:border-slate-800 rounded-xl hover:border-cyan-500/50 dark:hover:border-cyan-500/30 transition-all duration-300"
                             >
-                                <FaFacebookF className="w-5 h-5" />
-                            </a>
-                            <a
-                                href="https://www.instagram.com/katribbashar"
-                                className="p-3 bg-pink-600/10 text-pink-500 rounded-lg hover:bg-pink-600/20 transition-all duration-300"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <FaInstagram className="w-5 h-5" />
-                            </a>
-                        </div>
+                                <div className="flex items-center gap-4 mb-2">
+                                    <div className="p-3 bg-cyan-100 dark:bg-cyan-500/10 rounded-lg text-cyan-500 dark:text-cyan-400">
+                                        {info.icon}
+                                    </div>
+                                    <h3 className="text-gray-900 dark:text-white font-semibold">{info.label}</h3>
+                                </div>
+                                <p className="text-gray-900 dark:text-gray-400 text-sm">{info.value}</p>
+                            </div>
+                        ))}
                     </motion.div>
 
+                    {/* Right: Contact Form */}
                     <motion.div
-                        variants={itemVariants}
-                        className="lg:col-span-2 dark:bg-zinc-900/30 backdrop-blur-sm rounded-xl p-8 border border-zinc-800/50 hover:border-red-500/20 transition-all duration-300"
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="lg:col-span-2"
                     >
-                        <form className="grid gap-6" onSubmit={handleSubmit}>
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="block text-sm font-medium dark:text-gray-400 text-zinc-900 mb-2">
-                                    {t('contact.name')}
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        required
-                                        className="w-full dark:bg-black/50 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-300"
-                                        placeholder={t('contact.placeholder.name')}
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium dark:text-gray-400 text-zinc-900 mb-2">
-                                        {t('contact.phone')}
-                                    </label>
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        className="w-full dark:bg-black/50 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-300"
-                                        placeholder={t('contact.placeholder.phone')}
-                                    />
-                                </div>
+                        <form onSubmit={handleSubmit} className="space-y-6 p-8 bg-white dark:bg-slate-900/50 border border-gray-200 dark:border-slate-800 rounded-xl">
+                            <div>
+                                <label className="block text-gray-900 dark:text-white font-medium mb-2">
+                                    Name
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    required
+                                    placeholder="Your name"
+                                    className="w-full px-4 py-3 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                                />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium dark:text-gray-400 text-zinc-900 mb-2">
-                                    {t('contact.email')}
+                                <label className="block text-gray-900 dark:text-white font-medium mb-2">
+                                    Email
                                 </label>
                                 <input
                                     type="email"
                                     name="email"
                                     required
-                                    className="w-full dark:bg-black/50 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-300"
-                                    placeholder={t('contact.placeholder.email')}
+                                    placeholder="your.email@example.com"
+                                    className="w-full px-4 py-3 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium dark:text-gray-400 text-zinc-900 mb-2">
-                                    {t('contact.subject')}
-                                </label>
-                                <input
-                                    type="text"
-                                    name="subject"
-                                    className="w-full dark:bg-black/50 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-300"
-                                    placeholder={t('contact.placeholder.subject')}
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium dark:text-gray-400 text-zinc-900 mb-2">
-                                    {t('contact.message')}
+                                <label className="block text-gray-900 dark:text-white font-medium mb-2">
+                                    Message
                                 </label>
                                 <textarea
-                                    rows="6"
                                     name="message"
                                     required
-                                    className="w-full dark:bg-black/50 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition-colors duration-300 resize-none"
-                                    placeholder={t('contact.placeholder.message')}
+                                    rows="6"
+                                    placeholder="Tell me about your project..."
+                                    className="w-full px-4 py-3 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors resize-none"
                                 ></textarea>
                             </div>
-                            <motion.button
-                                whileHover={{ scale: 1.01 }}
-                                whileTap={{ scale: 0.99 }}
+                            <button
                                 type="submit"
-                                className="w-full bg-gradient-to-r from-red-600 to-red-500 text-white font-medium py-4 rounded-lg hover:from-red-500 hover:to-red-600 transition-all duration-300"
+                                className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 shadow-lg shadow-cyan-500/20"
                             >
-                                {t('contact.send')}
-                            </motion.button>
+                                Send Message
+                            </button>
                         </form>
                     </motion.div>
                 </div>
             </div>
-        </motion.section>
+        </section>
     );
 }
 

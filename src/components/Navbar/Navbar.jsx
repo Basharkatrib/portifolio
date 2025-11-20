@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
+import { Link } from 'react-scroll';
 import { Collapse, Dropdown, initTWE } from "tw-elements";
 import logo from '../../assets/logo.png';
 import { FaSun, FaMoon } from "react-icons/fa";
-import { useI18n } from '../../i18n.jsx';
 
 
 function Navbar() {
-    const { lang, setLang, t, dir } = useI18n();
     const [theme, setTheme] = useState('dark');
 
     useEffect(() => {
@@ -28,13 +26,13 @@ function Navbar() {
         localStorage.setItem('theme', next);
     };
 
-    const navitems = [t('nav.home'), t('nav.features'), t('nav.projects'), t('nav.experience') , t('nav.contact')];
+    const navitems = ['Services', 'About', 'Experience', 'Projects', 'Contact'];
 
     return (
         <>
             {/* Labtop Navbar */}
             <nav
-                className="hidden fixed z-50 w-full flex-nowrap items-center justify-between py-2 md:flex-wrap md:justify-start px-3 md:py-4 md:px-6 md:flex bg-white/80 backdrop-blur dark:bg-zinc-900/80 border-b border-white/10 text-zinc-900 dark:text-white"
+                className="hidden fixed z-50 w-full flex-nowrap items-center justify-between py-2 md:flex-wrap md:justify-start px-3 md:py-4 md:px-6 md:flex bg-white/90 dark:bg-[#0c1222]/90 backdrop-blur border-b border-gray-200 dark:border-cyan-500/10 text-gray-900 dark:text-white transition-colors duration-300"
                 data-twe-navbar-ref>
                 <div className="flex w-full flex-wrap items-center justify-between">
                     <button
@@ -74,8 +72,8 @@ function Navbar() {
                                 <div className="w-12 h-12 overflow-hidden">
                                     <img className="w-12 h-12 rounded-full transition duration-300 hover:scale-110" src={logo} />
                                 </div>
-                                <div className="font-bold text-2xl text-zinc-700 dark:text-gray-400">
-                                    BASHAR
+                                <div className="font-bold text-2xl text-cyan-500 dark:text-cyan-400">
+                                    Bashar Katrib
                                 </div>
                             </Link>
                             <div className="flex items-center gap-4">
@@ -91,7 +89,7 @@ function Navbar() {
                                             smooth={true}
                                             offset={-70} 
                                             duration={500}
-                                            className="ml-6 cursor-pointer text-zinc-700 dark:text-gray-400 transition duration-300 hover:text-red-600"
+                                            className="ml-6 cursor-pointer text-gray-600 dark:text-gray-300 transition duration-300 hover:text-cyan-500 dark:hover:text-cyan-400"
                                         >
                                             {item}
                                         </Link>
@@ -99,16 +97,10 @@ function Navbar() {
                                 </ul>
                                 <button
                                     onClick={toggleTheme}
-                                    className="p-2 rounded-lg border border-white/10 text-zinc-700 dark:text-gray-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+                                    className="p-2 rounded-lg border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 transition-colors"
                                     aria-label="Toggle theme"
                                 >
                                     {theme === 'dark' ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
-                                </button>
-                                <button
-                                    onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
-                                    className="px-3 py-2 rounded-lg border border-white/10 text-sm text-zinc-700 dark:text-gray-300 hover:bg-zinc-200 dark:hover:bg-zinc-800"
-                                >
-                                    {lang === 'ar' ? 'EN' : 'AR'}
                                 </button>
                             </div>
                         </div>
@@ -119,7 +111,7 @@ function Navbar() {
             {/* Mobile Navbar */}
 
             <nav
-                className="fixed z-50 flex w-full flex-nowrap items-center justify-between bg-white/90 dark:bg-neutral-800/90 backdrop-blur py-2 md:hidden lg:flex-wrap lg:justify-start lg:py-4"
+                className="fixed z-50 flex w-full flex-nowrap items-center justify-between bg-white/90 dark:bg-[#0c1222]/90 backdrop-blur py-2 md:hidden lg:flex-wrap lg:justify-start lg:py-4 border-b border-gray-200 dark:border-cyan-500/10 transition-colors duration-300"
                 data-twe-navbar-ref>
                 <div className="flex w-full flex-wrap items-center justify-between px-3">
                     <div className="flex justify-between items-center w-full">
@@ -137,21 +129,13 @@ function Navbar() {
                         <div className="flex items-center gap-2">
                             <button
                                 onClick={toggleTheme}
-                                className="block border-0 h-10 dark:bg-zinc-800 dark:text-white rounded-md px-3 lg:hidden"
+                                className="block border h-10 border-cyan-500/50 dark:border-cyan-500/30 bg-cyan-100 dark:bg-cyan-500/10 text-cyan-500 dark:text-cyan-400 rounded-md px-3 lg:hidden"
                                 type="button"
                                 aria-label="Toggle theme">
                                 {theme === 'dark' ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
                             </button>
                             <button
-                                onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
-                                className="block border-0 h-10 bg-zinc-200 text-zinc-800 dark:bg-zinc-700 dark:text-white rounded-md px-3 hover:bg-zinc-300 dark:hover:bg-zinc-600 lg:hidden"
-                                type="button"
-                                aria-label="Toggle language"
-                            >
-                                {lang === 'ar' ? 'EN' : 'AR'}
-                            </button>
-                            <button
-                                className="block border-0 h-10 dark:bg-black rounded-md px-2  hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+                                className="block border-0 h-10 bg-gray-100 dark:bg-black rounded-md px-2 text-gray-900 dark:text-neutral-200 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 lg:hidden"
                                 type="button"
                                 data-twe-collapse-init
                                 data-twe-target="#navbarSupportedContent8"
@@ -159,7 +143,7 @@ function Navbar() {
                                 aria-expanded="false"
                                 aria-label="Toggle navigation">
                                 <span
-                                    className="[&>svg]:w-7 text-red-600">
+                                    className="[&>svg]:w-7 text-cyan-500 dark:text-cyan-400">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
@@ -193,7 +177,7 @@ function Navbar() {
                                         smooth={true}
                                         offset={-70} 
                                         duration={500}
-                                        className="md:px-2 text-zinc-700 dark:text-gray-400 transition duration-300 hover:text-red-600"
+                                        className="md:px-2 text-gray-700 dark:text-gray-400 transition duration-300 hover:text-cyan-500 dark:hover:text-cyan-400"
                                     >
                                         {item}
                                     </Link>

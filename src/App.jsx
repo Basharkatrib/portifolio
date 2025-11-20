@@ -1,26 +1,33 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import './index.css';
-import { Collapse, Dropdown, initTWE } from "tw-elements";
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Hero from './components/Hero/Hero';
-import Featurs from './components/Features/Features';
-import Resume from './components/Resume/Resume';
-import Slider from './components/Slider/Slider';
+import Services from './components/Services/Services';
+import About from './components/About/About';
+import Experience from './components/Experience/Experience';
+import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
-import AdditionalSkills from './components/AdditionalSkills/AdditionalSkills';
 
-
-function App(props) {
-
+function App() {
+  useEffect(() => {
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
+    
+    // Prevent scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 dark:bg-[#0a0a0a] dark:text-neutral-100">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0c1222] text-gray-900 dark:text-white transition-colors duration-300">
       <Navbar />
       <Hero />
-      <Featurs />
-      <Resume />
-      <AdditionalSkills />
+      <Services />
+      <About />
+      <Experience />
+      <Projects />
       <Contact />
       <Footer />
     </div>

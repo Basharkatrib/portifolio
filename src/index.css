@@ -3,19 +3,20 @@
 
 @layer base {
   html {
-    @apply text-surface;
+    @apply text-gray-900;
     @apply bg-white;
+    scroll-behavior: smooth;
   }
   html.dark {
-    @apply text-neutral-50;
-    @apply bg-body-dark;
+    @apply text-white;
+    @apply bg-[#0c1222];
   }
-
-/* Prevent unintended horizontal scroll in rtl sections */
-html[dir="rtl"],
-body[dir="rtl"] {
-  overflow-x: hidden;
-}
+  body {
+    scroll-behavior: smooth;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
 }
 
 @tailwind components;
@@ -35,18 +36,30 @@ body{
 }
 
 ::-webkit-scrollbar-thumb {
-  background: red; 
-  border-radius: 1px; 
+  background: linear-gradient(180deg, #06b6d4, #3b82f6); 
+  border-radius: 5px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0891b2, #2563eb);
 }
 
 ::-webkit-scrollbar-track {
-  background: black;
+  background: #1e293b;
+}
+
+html:not(.dark) ::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #06b6d4, #3b82f6);
 }
 
 /* removed hard-coded nav mobile background to allow theme */
 
 .active{
-  border-bottom: 2px solid #dc2626;
+  border-bottom: 2px solid #06b6d4;
 }
 
 .link:hover span > svg {
