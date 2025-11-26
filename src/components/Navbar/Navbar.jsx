@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-scroll';
 import { Collapse, Dropdown, initTWE } from "tw-elements";
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo2.svg';
 import { FaSun, FaMoon } from "react-icons/fa";
 
 
@@ -69,9 +69,7 @@ function Navbar() {
                                 duration={500}
                                 className="flex items-center gap-2 cursor-pointer"
                             >
-                                <div className="font-bold text-2xl text-cyan-500 dark:text-cyan-400">
-                                    Bashar Katrib
-                                </div>
+                                <img src={logo} alt="logo" className="w-12 h-12  " />
                             </Link>
                             <div className="flex items-center gap-4">
                                 <ul
@@ -120,7 +118,7 @@ function Navbar() {
                             className="cursor-pointer"
                         >
                             <div className="w-12 h-12 overflow-hidden">
-                                <img className="w-12 h-12 rounded-full transition duration-300 hover:scale-110" src={logo} />
+                                <img className="w-12 h-12" src={logo} />
                             </div>
                         </Link>
                         <div className="flex items-center gap-2">
