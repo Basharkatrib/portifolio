@@ -32,7 +32,7 @@ function Navbar() {
         <>
             {/* Labtop Navbar */}
             <nav
-                className="hidden fixed z-50 w-full flex-nowrap items-center justify-between py-2 md:flex-wrap md:justify-start px-3 md:py-4 md:px-6 md:flex bg-white/90 dark:bg-[#0c1222]/90 backdrop-blur border-b border-gray-200 dark:border-cyan-500/10 text-gray-900 dark:text-white transition-colors duration-300"
+                className="hidden fixed z-50 w-full flex-nowrap items-center justify-between py-2 md:flex-wrap md:justify-start px-3 md:py-4 sm:px-6 md:flex bg-white/90 dark:bg-[#0c1222]/90 backdrop-blur border-b border-gray-200 dark:border-cyan-500/10 text-gray-900 dark:text-white transition-colors duration-300"
                 data-twe-navbar-ref>
                 <div className="flex w-full flex-wrap items-center justify-between">
                     <button

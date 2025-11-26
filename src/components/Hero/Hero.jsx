@@ -10,7 +10,7 @@ function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative min-h-[90vh] px-4 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16 flex items-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#0c1222] dark:to-[#0c1222] transition-colors duration-300"
+            className="relative min-h-[90vh] px-3 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16 flex items-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#0c1222] dark:to-[#0c1222] transition-colors duration-300"
             id="Home"
         >
             <div className="max-w-7xl mx-auto w-full">

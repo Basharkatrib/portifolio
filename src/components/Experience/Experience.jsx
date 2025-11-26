@@ -52,7 +52,7 @@ function Experience() {
     ];
 
     return (
-        <section className="py-20 px-6 bg-white dark:bg-[#0c1222] transition-colors duration-300" id="Experience">
+        <section className="py-20 px-3 sm:px-6 bg-white dark:bg-[#0c1222] transition-colors duration-300" id="Experience">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <motion.div

@@ -4,7 +4,7 @@ import { FaGithub, FaFacebookF, FaInstagram } from "react-icons/fa";
 
 function Footer() {
     return (
-        <footer className="py-16 px-6 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-[#0c1222] dark:to-[#060b14] border-t border-gray-300 dark:border-cyan-500/10 transition-colors duration-300">
+        <footer className="py-16 px-3 sm:px-6 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-[#0c1222] dark:to-[#060b14] border-t border-gray-300 dark:border-cyan-500/10 transition-colors duration-300">
             <div className="max-w-7xl mx-auto">
                 {/* Top Section */}
                 <div className="grid lg:grid-cols-2 gap-12 mb-12">

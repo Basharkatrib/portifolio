@@ -54,8 +54,8 @@ function Services() {
     ];
 
     return (
-        <section className="py-20 px-6 bg-white dark:bg-[#0c1222] transition-colors duration-300" id="Services">
-            <div className="max-w-7xl mx-auto">
+        <section className="py-20 px-3 sm:px-6 bg-white dark:bg-[#0c1222] transition-colors duration-300" id="Services">
+            <div className="">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
