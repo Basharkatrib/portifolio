@@ -1,7 +1,20 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
+    const [formValues, setFormValues] = useState({
+        name: "",
+        email: "",
+        message: ""
+    });
+
+    const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [statusMessage, setStatusMessage] = useState(null);
+    const [statusType, setStatusType] = useState("success"); // "success" | "error"
+
     const contactInfo = [
         {
             icon: <FaEnvelope className="w-5 h-5" />,
@@ -20,18 +33,83 @@ function Contact() {
         }
     ];
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.currentTarget;
-        const formData = new FormData(form);
-        const name = formData.get('name') || '';
-        const email = formData.get('email') || '';
-        const message = formData.get('message') || '';
+    const validate = () => {
+        const newErrors = {};
 
-        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-        const mailto = `mailto:bashar2003katrib@gmail.com?subject=Portfolio Contact&body=${encodeURIComponent(body)}`;
-        window.location.href = mailto;
-        form.reset();
+        if (!formValues.name.trim()) {
+            newErrors.name = "Name is required";
+        }
+
+        if (!formValues.email.trim()) {
+            newErrors.email = "Email is required";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formValues.email)) {
+            newErrors.email = "Please enter a valid email address";
+        }
+
+        if (!formValues.message.trim()) {
+            newErrors.message = "Message is required";
+        } else if (formValues.message.trim().length < 10) {
+            newErrors.message = "Message should be at least 10 characters";
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+        // Clear error for this field when user edits
+        if (errors[name]) {
+            setErrors((prev) => ({
+                ...prev,
+                [name]: undefined
+            }));
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        setStatusMessage(null);
+
+        if (!validate()) {
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                {
+                    from_name: formValues.name,
+                    from_email: formValues.email,
+                    message: formValues.message
+                },
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            )
+
+            setStatusType("success");
+            setStatusMessage("Your message has been sent successfully. I will get back to you soon.");
+
+            setFormValues({
+                name: "",
+                email: "",
+                message: ""
+            });
+            setErrors({});
+        } catch (error) {
+            console.error("EmailJS error:", error);
+            setStatusType("error");
+            setStatusMessage("Something went wrong while sending your message. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -95,10 +173,16 @@ function Contact() {
                                 <input
                                     type="text"
                                     name="name"
-                                    required
+                                    value={formValues.name}
+                                    onChange={handleChange}
                                     placeholder="Your name"
                                     className="w-full px-4 py-3 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
                                 />
+                                {errors.name && (
+                                    <p className="mt-1 text-sm text-red-500">
+                                        {errors.name}
+                                    </p>
+                                )}
                             </div>
                             <div>
                                 <label className="block text-gray-900 dark:text-white font-medium mb-2">
@@ -107,10 +191,16 @@ function Contact() {
                                 <input
                                     type="email"
                                     name="email"
-                                    required
+                                    value={formValues.email}
+                                    onChange={handleChange}
                                     placeholder="your.email@example.com"
                                     className="w-full px-4 py-3 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
                                 />
+                                {errors.email && (
+                                    <p className="mt-1 text-sm text-red-500">
+                                        {errors.email}
+                                    </p>
+                                )}
                             </div>
                             <div>
                                 <label className="block text-gray-900 dark:text-white font-medium mb-2">
@@ -118,17 +208,34 @@ function Contact() {
                                 </label>
                                 <textarea
                                     name="message"
-                                    required
+                                    value={formValues.message}
+                                    onChange={handleChange}
                                     rows="6"
                                     placeholder="Tell me about your project..."
                                     className="w-full px-4 py-3 bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors resize-none"
                                 ></textarea>
+                                {errors.message && (
+                                    <p className="mt-1 text-sm text-red-500">
+                                        {errors.message}
+                                    </p>
+                                )}
                             </div>
+                            {statusMessage && (
+                                <div
+                                    className={`text-sm rounded-lg px-4 py-3 ${statusType === "success"
+                                        ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
+                                        : "bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-300"
+                                        }`}
+                                >
+                                    {statusMessage}
+                                </div>
+                            )}
                             <button
                                 type="submit"
-                                className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 shadow-lg shadow-cyan-500/20"
+                                disabled={isSubmitting}
+                                className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 shadow-lg shadow-cyan-500/20 disabled:opacity-60 disabled:cursor-not-allowed"
                             >
-                                Send Message
+                                {isSubmitting ? "Sending..." : "Send Message"}
                             </button>
                         </form>
                     </motion.div>
