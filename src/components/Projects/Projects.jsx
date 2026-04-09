@@ -9,11 +9,21 @@ import ecomclothes from '../../assets/OIP.gif';
 import courses from '../../assets/courses.gif';
 import prodstore from '../../assets/productstore.gif';
 import weather from '../../assets/weather.png';
+import vayka from '../../assets/vayka.png';
 
 function Projects() {
     const projects = [
         {
             id: 1,
+            title: "Vayka - Hotel Booking Platform",
+            desc: "Vayka is a full-stack hotel booking platform that enables travelers to search, book, and pay for hotels with ease. It features an AI-powered chat assistant, dynamic promotions, and a facial recognition check-in system, built with React and Laravel.",
+            image: vayka,
+            techs: ["React.js", "Tailwind CSS", "Redux Toolkit", "Filament", "Laravel", "MySQL"],
+            github: "https://github.com/Basharkatrib/hotel-client",
+            demo: "https://vayka.netlify.app"
+        },
+        {
+            id: 2,
             title: "Learnova - E-Learning Platform",
             desc: "A comprehensive online learning platform with course management, video streaming, and progress tracking",
             image: Learnova,
@@ -22,16 +32,16 @@ function Projects() {
             demo: "https://learnovaeducation.netlify.app"
         },
         {
-            id: 2,
+            id: 3,
             title: "Restaurant Website",
             desc: "Modern restaurant website with online ordering, menu management, and table reservations",
             image: restaurant,
-            techs: ["Next.js", "Tailwind CSS", "Node.js", "MongoDB"],
+            techs: ["Next.js", "Tailwind CSS"],
             github: "https://github.com/Basharkatrib/My_Next",
             demo: "https://restaurantbaskat.netlify.app"
         },
         {
-            id: 3,
+            id: 4,
             title: "Flyza - Flight Booking System",
             desc: "Complete flight booking platform with real-time availability, seat selection, and payment processing",
             image: Flyza,
@@ -40,7 +50,7 @@ function Projects() {
             demo: "https://flyzaairways.netlify.app"
         },
         {
-            id: 4,
+            id: 5,
             title: "PhotoLand - E-commerce Platform",
             desc: "An e-commerce platform for photography equipment with product catalog, shopping cart, and checkout system",
             image: photoland,
@@ -49,7 +59,7 @@ function Projects() {
             demo: "https://photola.netlify.app"
         },
         {
-            id: 5,
+            id: 6,
             title: "Tikmol - Business Management System",
             desc: "A comprehensive business management system with admin dashboard, inventory tracking, and reporting features",
             image: tikmol,
@@ -58,7 +68,7 @@ function Projects() {
             demo: null
         },
         {
-            id: 6,
+            id: 7,
             title: "Weather App",
             desc: "A weather application with real-time forecasts, location-based weather data, and interactive UI",
             image: weather,
@@ -67,7 +77,7 @@ function Projects() {
             demo: "https://appwether.netlify.app"
         },
         {
-            id: 7,
+            id: 8,
             title: "E-Commerce Clothes Store",
             desc: "An online clothing store with product filtering, shopping cart, and user authentication",
             image: ecomclothes,
@@ -76,22 +86,13 @@ function Projects() {
             demo: null
         },
         {
-            id: 8,
+            id: 9,
             title: "Courses Management System",
             desc: "A course management platform built with Laravel for creating, managing, and tracking educational courses",
             image: courses,
             techs: ["Laravel", "PHP", "MySQL", "Blade"],
             github: "https://github.com/Basharkatrib/Courses-t1",
             demo: null
-        },
-        {
-            id: 9,
-            title: "Product Store - CRUD Application",
-            desc: "A product management application with full CRUD operations, local storage, and responsive design",
-            image: prodstore,
-            techs: ["HTML", "CSS", "JavaScript", "Local Storage"],
-            github: "https://github.com/Basharkatrib/crud1",
-            demo: "https://basharkatrib.github.io/crud1/"
         }
     ];
 
