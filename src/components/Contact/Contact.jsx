@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheckCircle } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 function Contact() {
@@ -14,6 +14,7 @@ function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [statusMessage, setStatusMessage] = useState(null);
     const [statusType, setStatusType] = useState("success"); // "success" | "error"
+    const [showAlert, setShowAlert ] = useState(false);
 
     const contactInfo = [
         {
@@ -97,6 +98,8 @@ function Contact() {
 
             setStatusType("success");
             setStatusMessage("Your message has been sent successfully. I will get back to you soon.");
+            setShowAlert(true);
+            setTimeout(() => setShowAlert(false), 3000);
 
             setFormValues({
                 name: "",
@@ -114,7 +117,28 @@ function Contact() {
     };
 
     return (
-        <section className="py-20 px-3 sm:px-6 bg-white dark:bg-[#0c1222] transition-colors duration-300" id="Contact">
+        <section className="relative py-20 px-3 sm:px-6 bg-white dark:bg-[#0c1222] transition-colors duration-300" id="Contact">
+            {/* Professional Success Alert */}
+            <AnimatePresence>
+                {showAlert && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -100, x: "-50%" }}
+                        animate={{ opacity: 1, y: 20, x: "-50%" }}
+                        exit={{ opacity: 0, y: -100, x: "-50%" }}
+                        className="fixed top-0 left-1/2 z-[100] w-[90%] max-w-md"
+                    >
+                        <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-emerald-500/20 dark:border-emerald-500/30 p-4 rounded-2xl shadow-2xl shadow-emerald-500/10 flex items-center gap-4">
+                            <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                                <FaCheckCircle className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <h4 className="text-gray-900 dark:text-white font-bold">Successfully Sent!</h4>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">Your message was delivered successfully.</p>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <motion.div
