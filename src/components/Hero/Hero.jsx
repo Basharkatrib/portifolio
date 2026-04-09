@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import myphoto from '../../assets/Screenshot_2025-05-06_135148-removebg-preview.png';
+import myphoto from '../../assets/myphoto.png';
 import { Link } from 'react-scroll';
 import { FaChevronDown } from "react-icons/fa";
 

@@ -24,7 +24,7 @@ function Projects() {
         },
         {
             id: 2,
-            title: "Learnova - E-Learning Platform",
+            title: "LearNova - E-Learning Platform",
             desc: "A comprehensive online learning platform with course management, video streaming, and progress tracking",
             image: Learnova,
             techs: ["React.js", "Redux Toolkit", "Laravel", "MySQL"],
