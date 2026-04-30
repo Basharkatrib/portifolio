@@ -1,5 +1,7 @@
+
 User-agent: *
 Allow: /
 
 # Sitemap location (update to your actual domain if different)
-Sitemap: https://basharkatrib.com/sitemap.xml
+Sitemap: https://basharkatrib.me/sitemap.xml
+
