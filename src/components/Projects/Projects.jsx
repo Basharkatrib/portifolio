@@ -10,6 +10,7 @@ import courses from '../../assets/courses.gif';
 import prodstore from '../../assets/productstore.gif';
 import weather from '../../assets/weather.png';
 import vayka from '../../assets/vayka.png';
+import trading from '../../assets/trading.png';
 
 function Projects() {
     const projects = [
@@ -22,17 +23,26 @@ function Projects() {
             github: "https://github.com/Basharkatrib/hotel-client",
             demo: "https://vayka.netlify.app"
         },
-        {
+          {
             id: 2,
+            title: "Real-time Crypto & Gold Trading Platform",
+            desc: "A sophisticated financial dashboard featuring live market data simulation, interactive candlestick charts, and instant price updates using WebSocket technology.",
+            image: trading,
+            techs: ["Next.js", "Laravel API", "Tailwind CSS", "Laravel Reverb", "WebSockets"],
+            github: "https://github.com/Basharkatrib/trading_client",
+            demo: "https://drive.google.com/file/d/1L-mW3PvTLn_BiYG6pi7kjydj_zy-dSGp/view?usp=drive_link"
+        },
+        {
+            id: 3,
             title: "LearNova - E-Learning Platform",
             desc: "A comprehensive online learning platform with course management, video streaming, and progress tracking",
             image: Learnova,
             techs: ["React.js", "Redux Toolkit", "Laravel", "MySQL"],
             github: "https://github.com/Basharkatrib/E-learning-client",
-            demo: "https://learnovaeducation.netlify.app"
+            demo: "https://drive.google.com/file/d/1PjdG1TVZCPFviHkWjjTLJ5oLUKGSi0R7/view?usp=sharing"
         },
         {
-            id: 3,
+            id: 4,
             title: "Restaurant Website",
             desc: "Modern restaurant website with online ordering, menu management, and table reservations",
             image: restaurant,
@@ -41,7 +51,7 @@ function Projects() {
             demo: "https://restaurantbaskat.netlify.app"
         },
         {
-            id: 4,
+            id: 5,
             title: "Flyza - Flight Booking System",
             desc: "Complete flight booking platform with real-time availability, seat selection, and payment processing",
             image: Flyza,
@@ -50,7 +60,7 @@ function Projects() {
             demo: "https://flyzaairways.netlify.app"
         },
         {
-            id: 5,
+            id: 6,
             title: "PhotoLand - E-commerce Platform",
             desc: "An e-commerce platform for photography equipment with product catalog, shopping cart, and checkout system",
             image: photoland,
@@ -59,22 +69,13 @@ function Projects() {
             demo: "https://photola.netlify.app"
         },
         {
-            id: 6,
+            id: 7,
             title: "Tikmol - Business Management System",
             desc: "A comprehensive business management system with admin dashboard, inventory tracking, and reporting features",
             image: tikmol,
             techs: ["React.js", "Laravel", "Nova", "MySQL"],
             github: "https://github.com/Basharkatrib/tikmol-front-addanim-v2",
             demo: null
-        },
-        {
-            id: 7,
-            title: "Weather App",
-            desc: "A weather application with real-time forecasts, location-based weather data, and interactive UI",
-            image: weather,
-            techs: ["React.js", "Tailwind CSS", "API", "JavaScript"],
-            github: "https://github.com/Basharkatrib/WeatherApp",
-            demo: "https://appwether.netlify.app"
         },
         {
             id: 8,
